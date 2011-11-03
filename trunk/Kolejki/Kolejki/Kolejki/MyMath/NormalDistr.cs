@@ -8,15 +8,13 @@ namespace Kolejki.MyMath
 {
     class NormalDistr : IDistribution
     {
-        public String Name { get { return "Normal distribution"; } }
+        public String Name { get { return "Normal distr"; } }
         NormalDistribution distr;
 
         public int NextValue()
         {
             double val = distr.NextDouble();
-
-            //todo: change
-            return new Random().Next(15)+2;
+            return (int)val;
         }
 
         public NormalDistr()

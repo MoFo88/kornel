@@ -73,14 +73,17 @@ namespace Kolejki
                 case 1:
                     dgv = dgvDevice1;
                     dev = scheduler.socketList[0].deviceList[0];
+                    label1.Text = dev.ToString();
                     break;
                 case 2:
                     dgv = dgvDevice2;
                     dev = scheduler.socketList[0].deviceList[1];
+                    label2.Text = dev.ToString();
                     break;
                 case 3:
                     dgv = dgvDevice3;
                     dev = scheduler.socketList[1].deviceList[0];
+                    label3.Text = dev.ToString();
                     break;
            
                 default:

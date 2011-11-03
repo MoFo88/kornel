@@ -29,6 +29,7 @@ namespace Kolejki.F
         public void AddDevice(Device dev)
         {
             deviceList.Add(dev);
+            dev.socket = this;
         }
 
         public static void MakeConnection(Socket prev, Socket next)

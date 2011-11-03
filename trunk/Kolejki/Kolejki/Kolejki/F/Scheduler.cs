@@ -63,7 +63,7 @@ namespace Kolejki.F
             s1.AddDevice(d1);
             s1.AddDevice(d2);
 
-            QueueFifo q2 = new QueueFifo(this, 3);
+            QueueLifo q2 = new QueueLifo(this, 3);
             q2.Name = "kolejka 2";
             Socket s2 = new Socket(q2, this);
             Device d3 = new Device();
