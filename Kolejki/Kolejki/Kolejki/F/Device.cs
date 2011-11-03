@@ -9,9 +9,22 @@ namespace Kolejki.F
     {
         static int lastId = 0;
         private Job currentJob;
+        private int started = -1;
+        public Socket socket;
 
         int Id { get; set; }
-        public Job CurrentJob { get { return currentJob; } set { currentJob = value; IsWorking = true; if (value == null) IsWorking = false; } }
+        public Job CurrentJob 
+        { 
+            get { return currentJob; } 
+            set 
+            { 
+                currentJob = value; 
+                IsWorking = true; 
+                if (value == null) IsWorking = false;  
+            } 
+        }
+        
+        
         public bool IsWorking { get; set; }
         public bool IsBusy { get { if (CurrentJob == null) return false; return true; } }
 
@@ -22,7 +35,9 @@ namespace Kolejki.F
 
         public override string ToString()
         {
-            return "dev " + Id + " (w: " + IsWorking + " b:" + IsBusy + ")";
+            String s = s = "dev " + Id + " - E ( w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
+            if (CurrentJob != null) s = "dev " + Id + " - " + CurrentJob.GetTimeForDevice(this) + " (w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
+            return s;
         }
 
         public bool RemoveJob(int timestamp, Socket socket)

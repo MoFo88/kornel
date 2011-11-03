@@ -68,7 +68,10 @@
     <Compile Include="F\ProbabilitySocket.cs" />
     <Compile Include="F\Job.cs" />
     <Compile Include="F\Events\PutToQueueEvent.cs" />
+    <Compile Include="F\Queues\Queue.cs" />
     <Compile Include="F\Queues\QueueFifo.cs" />
+    <Compile Include="F\Queues\QueueLifo.cs" />
+    <Compile Include="F\Queues\QueueRandom.cs" />
     <Compile Include="F\Socket.cs" />
     <Compile Include="F\Extension\SocketExtension.cs" />
     <Compile Include="MyMath\IDistribution.cs" />

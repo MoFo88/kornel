@@ -5,18 +5,18 @@ using System.Text;
 
 namespace Kolejki.F
 {
-    class QueueFifo : Queue
+    public class QueueLifo : Queue
     {
-        
-        public QueueFifo(Scheduler s, int size) : base(s, size){}
+        public QueueLifo(Scheduler s, int size) : base(s, size) { Name = "QLifo"; }
+
 
         public override Job Get()
         {
             Job job = null;
             if (Count > 0)
             {
-                job = JobList.First();
-                JobList.RemoveAt(0);
+                job = JobList.Last();
+                JobList.Remove(job);
                 AddEventGet();
             }
             return job;
@@ -24,7 +24,7 @@ namespace Kolejki.F
 
         public override Job Peak()
         {
-            return JobList.First();
+            return JobList.Last();
         }
 
         public override bool Put(Job job)

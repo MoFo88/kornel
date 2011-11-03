@@ -5,18 +5,23 @@ using System.Text;
 
 namespace Kolejki.F
 {
-    class QueueFifo : Queue
+    public class QueueRandom : Queue
     {
-        
-        public QueueFifo(Scheduler s, int size) : base(s, size){}
+
+        public QueueRandom(Scheduler s, int size) : base(s, size) { Name = "QRandom"; }
 
         public override Job Get()
         {
             Job job = null;
             if (Count > 0)
             {
-                job = JobList.First();
-                JobList.RemoveAt(0);
+
+                Random rand = new Random();
+                int x = rand.Next(Count);
+
+                job = JobList[x];
+
+                JobList.Remove(job);
                 AddEventGet();
             }
             return job;
@@ -24,7 +29,7 @@ namespace Kolejki.F
 
         public override Job Peak()
         {
-            return JobList.First();
+            throw new Exception("cannot implement");
         }
 
         public override bool Put(Job job)

@@ -44,6 +44,9 @@
             this.dgvQueue2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice1)).BeginInit();
@@ -129,7 +132,7 @@
             this.dgvDevice1.ColumnHeadersVisible = false;
             this.dgvDevice1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
-            this.dgvDevice1.Location = new System.Drawing.Point(254, 195);
+            this.dgvDevice1.Location = new System.Drawing.Point(254, 215);
             this.dgvDevice1.MultiSelect = false;
             this.dgvDevice1.Name = "dgvDevice1";
             this.dgvDevice1.ReadOnly = true;
@@ -153,7 +156,7 @@
             this.dgvDevice2.ColumnHeadersVisible = false;
             this.dgvDevice2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3});
-            this.dgvDevice2.Location = new System.Drawing.Point(254, 250);
+            this.dgvDevice2.Location = new System.Drawing.Point(254, 290);
             this.dgvDevice2.MultiSelect = false;
             this.dgvDevice2.Name = "dgvDevice2";
             this.dgvDevice2.ReadOnly = true;
@@ -177,7 +180,7 @@
             this.dgvDevice3.ColumnHeadersVisible = false;
             this.dgvDevice3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5});
-            this.dgvDevice3.Location = new System.Drawing.Point(496, 195);
+            this.dgvDevice3.Location = new System.Drawing.Point(496, 215);
             this.dgvDevice3.MultiSelect = false;
             this.dgvDevice3.Name = "dgvDevice3";
             this.dgvDevice3.ReadOnly = true;
@@ -221,11 +224,41 @@
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(273, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(273, 274);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(514, 195);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 641);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDevice3);
             this.Controls.Add(this.dgvQueue2);
             this.Controls.Add(this.dgvDevice2);
@@ -244,6 +277,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -264,6 +298,9 @@
         private System.Windows.Forms.DataGridView dgvQueue2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

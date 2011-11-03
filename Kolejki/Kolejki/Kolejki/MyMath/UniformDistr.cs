@@ -23,7 +23,7 @@ namespace Kolejki.MyMath
 
         public string Name
         {
-            get { return "Uniform distribution"; }
+            get { return "Uniform distr"; }
         }
     }
 }
