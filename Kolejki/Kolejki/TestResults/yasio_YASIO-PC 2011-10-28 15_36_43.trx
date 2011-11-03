@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="31e5e12f-041f-4371-82c8-be4b866beccd" name="yasio@YASIO-PC 2011-10-28 15:36:43" runUser="yasio-PC\yasio" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="97493afa-13e4-4da3-901c-fc20c9863eac">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="yasio_YASIO-PC 2011-10-28 15_36_43">
+      <DeploymentItem filename="D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Debug\MathNet.Iridium.dll" />
+      <DeploymentItem filename="D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-28T15:36:43.3219923+02:00" queuing="2011-10-28T15:36:47.4885104+02:00" start="2011-10-28T15:36:47.9253112+02:00" finish="2011-10-28T15:36:51.7941180+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="8" executed="8" passed="8" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="SocketConstructorTest" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="41823a85-e94a-1cf2-fa4f-d921d4cd48c9">
+      <Execution id="1c3e93b6-2652-4da2-9bc0-96ed2fbb04cc" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.SocketTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SocketConstructorTest" />
+    </UnitTest>
+    <UnitTest name="Get2Test" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="459fe571-de5b-716a-21b4-9beb1226bd65">
+      <Execution id="c9cd64de-a6f2-42b8-a4dc-f59d4e6f0a0d" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.QueueFifoTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Get2Test" />
+    </UnitTest>
+    <UnitTest name="GetTest" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="a93410c0-6366-e2b4-b342-a2965b3f5589">
+      <Execution id="65b9e761-b55c-4c29-9fa3-b37f9d65ee2e" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.QueueFifoTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetTest" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="24e109b5-ebac-7154-c0d0-91db5c99399f">
+      <Execution id="f98b6434-b4a2-4055-9b6b-86b55bbeaeab" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.UnitTest1, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="PutTest" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="d1bc0e55-25d9-725c-f471-293616ea5adc">
+      <Execution id="01be507d-c9ea-4f2b-a776-f14d563fc9a1" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.QueueFifoTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PutTest" />
+    </UnitTest>
+    <UnitTest name="MakeConnectionTest_makeConnectionTwice" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="49cd2c00-8ac8-fe9a-54e9-8cc0e6e95967">
+      <Execution id="84539aef-4e0b-4d6d-85d6-7a1c41b23d1f" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.SocketTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MakeConnectionTest_makeConnectionTwice" />
+    </UnitTest>
+    <UnitTest name="loopTest" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="fb3c1732-2368-de59-5857-77cab277ab61">
+      <Execution id="bf46a4be-831c-4099-8051-e762f43efc7b" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.SchedulerTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="loopTest" />
+    </UnitTest>
+    <UnitTest name="MakeConnectionTest_AreConnected" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\release\testproject.dll" id="694b55d8-71f3-1c9d-2c00-a68e389f0739">
+      <Execution id="bdf32afa-088e-462c-a28e-7ce314890111" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.SocketTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MakeConnectionTest_AreConnected" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="24e109b5-ebac-7154-c0d0-91db5c99399f" executionId="f98b6434-b4a2-4055-9b6b-86b55bbeaeab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41823a85-e94a-1cf2-fa4f-d921d4cd48c9" executionId="1c3e93b6-2652-4da2-9bc0-96ed2fbb04cc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="459fe571-de5b-716a-21b4-9beb1226bd65" executionId="c9cd64de-a6f2-42b8-a4dc-f59d4e6f0a0d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49cd2c00-8ac8-fe9a-54e9-8cc0e6e95967" executionId="84539aef-4e0b-4d6d-85d6-7a1c41b23d1f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="694b55d8-71f3-1c9d-2c00-a68e389f0739" executionId="bdf32afa-088e-462c-a28e-7ce314890111" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a93410c0-6366-e2b4-b342-a2965b3f5589" executionId="65b9e761-b55c-4c29-9fa3-b37f9d65ee2e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1bc0e55-25d9-725c-f471-293616ea5adc" executionId="01be507d-c9ea-4f2b-a776-f14d563fc9a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb3c1732-2368-de59-5857-77cab277ab61" executionId="bf46a4be-831c-4099-8051-e762f43efc7b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="f98b6434-b4a2-4055-9b6b-86b55bbeaeab" testId="24e109b5-ebac-7154-c0d0-91db5c99399f" testName="TestMethod1" computerName="YASIO-PC" duration="00:00:00.0104240" startTime="2011-10-28T15:36:48.0969115+02:00" endTime="2011-10-28T15:36:50.3277154+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f98b6434-b4a2-4055-9b6b-86b55bbeaeab">
+    </UnitTestResult>
+    <UnitTestResult executionId="1c3e93b6-2652-4da2-9bc0-96ed2fbb04cc" testId="41823a85-e94a-1cf2-fa4f-d921d4cd48c9" testName="SocketConstructorTest" computerName="YASIO-PC" duration="00:00:00.5133604" startTime="2011-10-28T15:36:50.3901155+02:00" endTime="2011-10-28T15:36:50.9673165+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c3e93b6-2652-4da2-9bc0-96ed2fbb04cc">
+    </UnitTestResult>
+    <UnitTestResult executionId="c9cd64de-a6f2-42b8-a4dc-f59d4e6f0a0d" testId="459fe571-de5b-716a-21b4-9beb1226bd65" testName="Get2Test" computerName="YASIO-PC" duration="00:00:00.1435173" startTime="2011-10-28T15:36:50.9985166+02:00" endTime="2011-10-28T15:36:51.1701169+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c9cd64de-a6f2-42b8-a4dc-f59d4e6f0a0d">
+    </UnitTestResult>
+    <UnitTestResult executionId="84539aef-4e0b-4d6d-85d6-7a1c41b23d1f" testId="49cd2c00-8ac8-fe9a-54e9-8cc0e6e95967" testName="MakeConnectionTest_makeConnectionTwice" computerName="YASIO-PC" duration="00:00:00.0168454" startTime="2011-10-28T15:36:51.3105171+02:00" endTime="2011-10-28T15:36:51.3885173+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="84539aef-4e0b-4d6d-85d6-7a1c41b23d1f">
+    </UnitTestResult>
+    <UnitTestResult executionId="bdf32afa-088e-462c-a28e-7ce314890111" testId="694b55d8-71f3-1c9d-2c00-a68e389f0739" testName="MakeConnectionTest_AreConnected" computerName="YASIO-PC" duration="00:00:00.0146978" startTime="2011-10-28T15:36:51.4041173+02:00" endTime="2011-10-28T15:36:51.4353174+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bdf32afa-088e-462c-a28e-7ce314890111">
+    </UnitTestResult>
+    <UnitTestResult executionId="65b9e761-b55c-4c29-9fa3-b37f9d65ee2e" testId="a93410c0-6366-e2b4-b342-a2965b3f5589" testName="GetTest" computerName="YASIO-PC" duration="00:00:00.0160322" startTime="2011-10-28T15:36:51.4509174+02:00" endTime="2011-10-28T15:36:51.4821174+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="65b9e761-b55c-4c29-9fa3-b37f9d65ee2e">
+    </UnitTestResult>
+    <UnitTestResult executionId="01be507d-c9ea-4f2b-a776-f14d563fc9a1" testId="d1bc0e55-25d9-725c-f471-293616ea5adc" testName="PutTest" computerName="YASIO-PC" duration="00:00:00.0158109" startTime="2011-10-28T15:36:51.4977175+02:00" endTime="2011-10-28T15:36:51.5289175+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01be507d-c9ea-4f2b-a776-f14d563fc9a1">
+    </UnitTestResult>
+    <UnitTestResult executionId="bf46a4be-831c-4099-8051-e762f43efc7b" testId="fb3c1732-2368-de59-5857-77cab277ab61" testName="loopTest" computerName="YASIO-PC" duration="00:00:00.0231582" startTime="2011-10-28T15:36:51.5601176+02:00" endTime="2011-10-28T15:36:51.6069177+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bf46a4be-831c-4099-8051-e762f43efc7b">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="04a27331-bde4-42e0-ac87-51685dcb28a5" name="yasio@YASIO-PC 2011-10-27 11:00:40" runUser="yasio-PC\yasio" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="97493afa-13e4-4da3-901c-fc20c9863eac">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="yasio_YASIO-PC 2011-10-27 11_00_40">
+      <DeploymentItem filename="D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Debug\MathNet.Iridium.dll" />
+      <DeploymentItem filename="D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Debug\Kolejki.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-27T11:00:40.2221537+02:00" queuing="2011-10-27T11:00:40.2461551+02:00" start="2011-10-27T11:00:40.2721566+02:00" finish="2011-10-27T11:00:40.9371946+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="loopTest" storage="d:\projects\c#\kolejki\kolejki\testproject\bin\debug\testproject.dll" id="fb3c1732-2368-de59-5857-77cab277ab61">
+      <Execution id="405b0162-f8f4-46e6-a354-3d4cfdaeb2c9" />
+      <TestMethod codeBase="D:/Projects/C#/Kolejki/Kolejki/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.SchedulerTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="loopTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="fb3c1732-2368-de59-5857-77cab277ab61" executionId="405b0162-f8f4-46e6-a354-3d4cfdaeb2c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="405b0162-f8f4-46e6-a354-3d4cfdaeb2c9" testId="fb3c1732-2368-de59-5857-77cab277ab61" testName="loopTest" computerName="YASIO-PC" duration="00:00:00.0450531" startTime="2011-10-27T11:00:40.3171591+02:00" endTime="2011-10-27T11:00:40.8121875+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="405b0162-f8f4-46e6-a354-3d4cfdaeb2c9">
+    </UnitTestResult>
+  </Results>
+</TestRun>
