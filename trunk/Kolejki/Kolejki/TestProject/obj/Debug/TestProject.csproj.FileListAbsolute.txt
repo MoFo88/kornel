@@ -1,0 +1,16 @@
+D:\Projects\C#\Kolejki\Kolejki\TestProject\bin\Debug\TestProject.dll
+D:\Projects\C#\Kolejki\Kolejki\TestProject\bin\Debug\TestProject.pdb
+D:\Projects\C#\Kolejki\Kolejki\TestProject\bin\Debug\Kolejki.exe
+D:\Projects\C#\Kolejki\Kolejki\TestProject\bin\Debug\MathNet.Iridium.dll
+D:\Projects\C#\Kolejki\Kolejki\TestProject\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\C#\Kolejki\Kolejki\TestProject\obj\Debug\TestProject.dll
+D:\Projects\C#\Kolejki\Kolejki\TestProject\obj\Debug\TestProject.pdb
+F:\Kolejki\TestProject\bin\Debug\TestProject.dll
+F:\Kolejki\TestProject\bin\Debug\TestProject.pdb
+F:\Kolejki\TestProject\bin\Debug\Kolejki.exe
+F:\Kolejki\TestProject\bin\Debug\MathNet.Iridium.dll
+F:\Kolejki\TestProject\bin\Debug\Kolejki.pdb
+F:\Kolejki\TestProject\obj\Debug\ResolveAssemblyReference.cache
+F:\Kolejki\TestProject\obj\Debug\TestProject.dll
+F:\Kolejki\TestProject\obj\Debug\TestProject.pdb
+D:\Projects\C#\Kolejki\Kolejki\TestProject\bin\Debug\Kolejki.pdb

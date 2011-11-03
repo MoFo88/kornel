@@ -1,0 +1,9 @@
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.Form1.resources
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.Properties.Resources.resources
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.exe
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.pdb
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.exe
+D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.pdb
