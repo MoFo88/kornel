@@ -47,12 +47,34 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvDevice5 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDevice4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQueue3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvDevice7 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDevice6 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQueue4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQueue3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQueue4)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -114,7 +136,7 @@
             this.dgvQueue1.ReadOnly = true;
             this.dgvQueue1.RowHeadersVisible = false;
             this.dgvQueue1.ShowEditingIcon = false;
-            this.dgvQueue1.Size = new System.Drawing.Size(75, 186);
+            this.dgvQueue1.Size = new System.Drawing.Size(75, 145);
             this.dgvQueue1.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -210,7 +232,7 @@
             this.dgvQueue2.ReadOnly = true;
             this.dgvQueue2.RowHeadersVisible = false;
             this.dgvQueue2.ShowEditingIcon = false;
-            this.dgvQueue2.Size = new System.Drawing.Size(75, 186);
+            this.dgvQueue2.Size = new System.Drawing.Size(75, 145);
             this.dgvQueue2.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn6
@@ -251,11 +273,201 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "label3";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(505, 464);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(505, 387);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "label4";
+            // 
+            // dgvDevice5
+            // 
+            this.dgvDevice5.AllowUserToAddRows = false;
+            this.dgvDevice5.AllowUserToDeleteRows = false;
+            this.dgvDevice5.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDevice5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevice5.ColumnHeadersVisible = false;
+            this.dgvDevice5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4});
+            this.dgvDevice5.Location = new System.Drawing.Point(486, 480);
+            this.dgvDevice5.MultiSelect = false;
+            this.dgvDevice5.Name = "dgvDevice5";
+            this.dgvDevice5.ReadOnly = true;
+            this.dgvDevice5.RowHeadersVisible = false;
+            this.dgvDevice5.ShowEditingIcon = false;
+            this.dgvDevice5.Size = new System.Drawing.Size(75, 50);
+            this.dgvDevice5.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Job";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dgvDevice4
+            // 
+            this.dgvDevice4.AllowUserToAddRows = false;
+            this.dgvDevice4.AllowUserToDeleteRows = false;
+            this.dgvDevice4.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDevice4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevice4.ColumnHeadersVisible = false;
+            this.dgvDevice4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7});
+            this.dgvDevice4.Location = new System.Drawing.Point(486, 405);
+            this.dgvDevice4.MultiSelect = false;
+            this.dgvDevice4.Name = "dgvDevice4";
+            this.dgvDevice4.ReadOnly = true;
+            this.dgvDevice4.RowHeadersVisible = false;
+            this.dgvDevice4.ShowEditingIcon = false;
+            this.dgvDevice4.Size = new System.Drawing.Size(75, 50);
+            this.dgvDevice4.TabIndex = 13;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Job";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dgvQueue3
+            // 
+            this.dgvQueue3.AllowUserToAddRows = false;
+            this.dgvQueue3.AllowUserToDeleteRows = false;
+            this.dgvQueue3.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvQueue3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQueue3.ColumnHeadersVisible = false;
+            this.dgvQueue3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8});
+            this.dgvQueue3.Location = new System.Drawing.Point(405, 385);
+            this.dgvQueue3.MultiSelect = false;
+            this.dgvQueue3.Name = "dgvQueue3";
+            this.dgvQueue3.ReadOnly = true;
+            this.dgvQueue3.RowHeadersVisible = false;
+            this.dgvQueue3.ShowEditingIcon = false;
+            this.dgvQueue3.Size = new System.Drawing.Size(75, 145);
+            this.dgvQueue3.TabIndex = 12;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Job";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(791, 369);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "label7";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(791, 292);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "label6";
+            // 
+            // dgvDevice7
+            // 
+            this.dgvDevice7.AllowUserToAddRows = false;
+            this.dgvDevice7.AllowUserToDeleteRows = false;
+            this.dgvDevice7.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDevice7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevice7.ColumnHeadersVisible = false;
+            this.dgvDevice7.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9});
+            this.dgvDevice7.Location = new System.Drawing.Point(772, 385);
+            this.dgvDevice7.MultiSelect = false;
+            this.dgvDevice7.Name = "dgvDevice7";
+            this.dgvDevice7.ReadOnly = true;
+            this.dgvDevice7.RowHeadersVisible = false;
+            this.dgvDevice7.ShowEditingIcon = false;
+            this.dgvDevice7.Size = new System.Drawing.Size(75, 50);
+            this.dgvDevice7.TabIndex = 19;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Job";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dgvDevice6
+            // 
+            this.dgvDevice6.AllowUserToAddRows = false;
+            this.dgvDevice6.AllowUserToDeleteRows = false;
+            this.dgvDevice6.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDevice6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevice6.ColumnHeadersVisible = false;
+            this.dgvDevice6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10});
+            this.dgvDevice6.Location = new System.Drawing.Point(772, 310);
+            this.dgvDevice6.MultiSelect = false;
+            this.dgvDevice6.Name = "dgvDevice6";
+            this.dgvDevice6.ReadOnly = true;
+            this.dgvDevice6.RowHeadersVisible = false;
+            this.dgvDevice6.ShowEditingIcon = false;
+            this.dgvDevice6.Size = new System.Drawing.Size(75, 50);
+            this.dgvDevice6.TabIndex = 18;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Job";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dgvQueue4
+            // 
+            this.dgvQueue4.AllowUserToAddRows = false;
+            this.dgvQueue4.AllowUserToDeleteRows = false;
+            this.dgvQueue4.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvQueue4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQueue4.ColumnHeadersVisible = false;
+            this.dgvQueue4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11});
+            this.dgvQueue4.Location = new System.Drawing.Point(691, 290);
+            this.dgvQueue4.MultiSelect = false;
+            this.dgvQueue4.Name = "dgvQueue4";
+            this.dgvQueue4.ReadOnly = true;
+            this.dgvQueue4.RowHeadersVisible = false;
+            this.dgvQueue4.ShowEditingIcon = false;
+            this.dgvQueue4.Size = new System.Drawing.Size(75, 145);
+            this.dgvQueue4.TabIndex = 17;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Job";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 582);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dgvDevice7);
+            this.Controls.Add(this.dgvDevice6);
+            this.Controls.Add(this.dgvQueue4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dgvDevice5);
+            this.Controls.Add(this.dgvDevice4);
+            this.Controls.Add(this.dgvQueue3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -276,6 +488,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQueue3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevice6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQueue4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,6 +519,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgvDevice5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridView dgvDevice4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridView dgvQueue3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dgvDevice7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridView dgvDevice6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridView dgvQueue4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
     }
 }
 

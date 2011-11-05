@@ -54,6 +54,12 @@ namespace Kolejki
                 case 2:
                     dgv = dgvQueue2;
                     break;
+                case 3:
+                    dgv = dgvQueue3;
+                    break;
+                case 4:
+                    dgv = dgvQueue4;
+                    break;
                 default:
                     throw new ApplicationException("Nieznana kolejka (dgv)");
             }
@@ -84,6 +90,26 @@ namespace Kolejki
                     dgv = dgvDevice3;
                     dev = scheduler.socketList[1].deviceList[0];
                     label3.Text = dev.ToString();
+                    break;
+                case 4:
+                    dgv = dgvDevice4;
+                    dev = scheduler.socketList[2].deviceList[0];
+                    label4.Text = dev.ToString();
+                    break;
+                case 5:
+                    dgv = dgvDevice5;
+                    dev = scheduler.socketList[2].deviceList[1];
+                    label5.Text = dev.ToString();
+                    break;
+                case 6:
+                    dgv = dgvDevice6;
+                    dev = scheduler.socketList[3].deviceList[0];
+                    label6.Text = dev.ToString();
+                    break;
+                case 7:
+                    dgv = dgvDevice7;
+                    dev = scheduler.socketList[3].deviceList[1];
+                    label7.Text = dev.ToString();
                     break;
            
                 default:
@@ -118,8 +144,10 @@ namespace Kolejki
             InitializeDgvJobs();
             InitializeDgvQueue(1);
             InitializeDgvQueue(2);
+            InitializeDgvQueue(3);
+            InitializeDgvQueue(4);
 
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= 7; i++)
             {
                 InitializeDgvDevice(i);
             }
