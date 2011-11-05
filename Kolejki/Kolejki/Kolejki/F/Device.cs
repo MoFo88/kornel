@@ -12,6 +12,8 @@ namespace Kolejki.F
         private int started = -1;
         public Socket socket;
 
+        private int jobStart = -1;
+
         int Id { get; set; }
         public Job CurrentJob 
         { 
@@ -20,7 +22,8 @@ namespace Kolejki.F
             { 
                 currentJob = value; 
                 IsWorking = true; 
-                if (value == null) IsWorking = false;  
+                if (value == null) IsWorking = false;
+                jobStart = socket.scheduler.timestamp;
             } 
         }
         
@@ -36,7 +39,7 @@ namespace Kolejki.F
         public override string ToString()
         {
             String s = s = "dev " + Id + " - E ( w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
-            if (CurrentJob != null) s = "dev " + Id + " - " + CurrentJob.GetTimeForDevice(this) + " (w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
+            if (CurrentJob != null) s = "dev " + Id + " - " + (socket.scheduler.timestamp - jobStart) + "/" +  CurrentJob.GetTimeForDevice(this) +  " (w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
             return s;
         }
 

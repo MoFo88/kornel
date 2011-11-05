@@ -90,7 +90,7 @@
             this.dgvJobs.ReadOnly = true;
             this.dgvJobs.RowHeadersVisible = false;
             this.dgvJobs.ShowEditingIcon = false;
-            this.dgvJobs.Size = new System.Drawing.Size(75, 434);
+            this.dgvJobs.Size = new System.Drawing.Size(75, 375);
             this.dgvJobs.TabIndex = 3;
             // 
             // Job
@@ -221,7 +221,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 20;
+            this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
@@ -255,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 641);
+            this.ClientSize = new System.Drawing.Size(1028, 582);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
