@@ -121,7 +121,7 @@ namespace Kolejki.F
                 //next step
                 timestamp++;
 
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(1000);
 
                 form.Notify("\n==" + this.timestamp + "==\n");
 

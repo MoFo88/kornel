@@ -7,3 +7,12 @@ D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.exe
 D:\Projects\C#\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.pdb
 D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.exe
 D:\Projects\C#\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.pdb
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.exe
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.pdb
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.exe
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\bin\Release\Kolejki.pdb
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.Form1.resources
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\Kolejki.Properties.Resources.resources
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\yasio\Desktop\kolejki\trunk\Kolejki\Kolejki\Kolejki\obj\x86\Release\GenerateResource.write.1.tlog
