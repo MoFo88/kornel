@@ -63,6 +63,15 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQueue4 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvStatsDevice = new System.Windows.Forms.DataGridView();
+            this.dgvStatsQueue = new System.Windows.Forms.DataGridView();
+            this.devId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avgW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avgB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AvgTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice1)).BeginInit();
@@ -75,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -89,9 +100,11 @@
             // 
             // richTextBox
             // 
+            this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox.Location = new System.Drawing.Point(12, 41);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(1108, 127);
+            this.richTextBox.Size = new System.Drawing.Size(389, 148);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
@@ -243,7 +256,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 30;
+            this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
@@ -453,11 +466,84 @@
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
+            // dgvStatsDevice
+            // 
+            this.dgvStatsDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvStatsDevice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStatsDevice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvStatsDevice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatsDevice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.devId,
+            this.allW,
+            this.allB,
+            this.avgW,
+            this.avgB});
+            this.dgvStatsDevice.Location = new System.Drawing.Point(416, 41);
+            this.dgvStatsDevice.Name = "dgvStatsDevice";
+            this.dgvStatsDevice.RowHeadersVisible = false;
+            this.dgvStatsDevice.Size = new System.Drawing.Size(269, 148);
+            this.dgvStatsDevice.TabIndex = 22;
+            // 
+            // dgvStatsQueue
+            // 
+            this.dgvStatsQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvStatsQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatsQueue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.QuId,
+            this.AvgTime});
+            this.dgvStatsQueue.Location = new System.Drawing.Point(691, 41);
+            this.dgvStatsQueue.Name = "dgvStatsQueue";
+            this.dgvStatsQueue.Size = new System.Drawing.Size(325, 148);
+            this.dgvStatsQueue.TabIndex = 23;
+            // 
+            // devId
+            // 
+            this.devId.HeaderText = "dev id";
+            this.devId.MaxInputLength = 5;
+            this.devId.Name = "devId";
+            this.devId.ReadOnly = true;
+            // 
+            // allW
+            // 
+            this.allW.HeaderText = "allW";
+            this.allW.MaxInputLength = 5;
+            this.allW.Name = "allW";
+            // 
+            // allB
+            // 
+            this.allB.HeaderText = "allB";
+            this.allB.MaxInputLength = 5;
+            this.allB.Name = "allB";
+            // 
+            // avgW
+            // 
+            this.avgW.HeaderText = "avgW";
+            this.avgW.MaxInputLength = 5;
+            this.avgW.Name = "avgW";
+            // 
+            // avgB
+            // 
+            this.avgB.HeaderText = "avgB";
+            this.avgB.MaxInputLength = 5;
+            this.avgB.Name = "avgB";
+            // 
+            // QuId
+            // 
+            this.QuId.HeaderText = "Qu Id";
+            this.QuId.Name = "QuId";
+            // 
+            // AvgTime
+            // 
+            this.AvgTime.HeaderText = "avg t";
+            this.AvgTime.Name = "AvgTime";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 582);
+            this.Controls.Add(this.dgvStatsQueue);
+            this.Controls.Add(this.dgvStatsDevice);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvDevice7);
@@ -494,6 +580,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevice6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,6 +623,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridView dgvQueue4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridView dgvStatsDevice;
+        private System.Windows.Forms.DataGridView dgvStatsQueue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn devId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allW;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avgW;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avgB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AvgTime;
     }
 }
 

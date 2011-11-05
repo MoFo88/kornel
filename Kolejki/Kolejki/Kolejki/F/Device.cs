@@ -9,25 +9,31 @@ namespace Kolejki.F
     {
         static int lastId = 0;
         private Job currentJob;
-        private int started = -1;
         public Socket socket;
+        public int Id { get; set; }
 
         private int jobStart = -1;
 
-        int Id { get; set; }
+
         public Job CurrentJob 
         { 
             get { return currentJob; } 
             set 
             { 
                 currentJob = value; 
-                IsWorking = true; 
+                
                 if (value == null) IsWorking = false;
-                jobStart = socket.scheduler.timestamp;
+                
+                if (value != null)
+                {
+                    IsWorking = true; 
+                    jobStart = socket.scheduler.timestamp;
+                    currentJob.GetMachineTimeForDevice(this).start = socket.scheduler.timestamp;
+                }
             } 
         }
         
-        
+
         public bool IsWorking { get; set; }
         public bool IsBusy { get { if (CurrentJob == null) return false; return true; } }
 
@@ -39,12 +45,14 @@ namespace Kolejki.F
         public override string ToString()
         {
             String s = s = "dev " + Id + " - E ( w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
-            if (CurrentJob != null) s = "dev " + Id + " - " + (socket.scheduler.timestamp - jobStart) + "/" +  CurrentJob.GetTimeForDevice(this) +  " (w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
+            if (CurrentJob != null) s = "dev " + Id + " - " + (socket.scheduler.timestamp - jobStart) + "/" +  CurrentJob.GetMachineTimeForDevice(this).sec +  " (w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
             return s;
         }
 
         public bool RemoveJob(int timestamp, Socket socket)
         {
+            if (CurrentJob != null) CurrentJob.GetMachineTimeForDevice(this).stop = socket.scheduler.timestamp;
+
             this.CurrentJob = null;
             //
             //jesli maszyna sie zwolnila

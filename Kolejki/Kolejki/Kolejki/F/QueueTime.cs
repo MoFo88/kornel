@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Kolejki.F
 {
-    public class MachineTime
+    public class QueueTime
     {
-        public Device device = null;
-        public int sec = -1;
+        public IQueue queue = null;
         public int start = -1;
         public int stop = -1;
     }

@@ -35,7 +35,21 @@ namespace Kolejki.F
 
         public abstract Job Peak();
 
-        public abstract bool Put(Job job);
+        public virtual bool Put(Job job)
+        {
+            if (!IsFull)
+            {
+                if (!JobList.Contains(job)) JobList.Add(job);
+                AddEventPut();
+                
+                job.GetQueueTimeForQueue(this).start = scheduler.timestamp;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public int Size { get; set; }
 

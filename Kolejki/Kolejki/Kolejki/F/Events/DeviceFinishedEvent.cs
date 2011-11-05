@@ -11,7 +11,7 @@ namespace Kolejki.F
         public Job job;
 
         public DeviceFinishedEvent(Device d, Job j, int timestamp)
-            : base(timestamp + j.GetTimeForDevice(d))
+            : base(timestamp + j.GetMachineTimeForDevice(d).sec)
         {
             this.device = d;
             this.job = j;

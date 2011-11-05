@@ -79,6 +79,11 @@ namespace Kolejki.F
 
         public void AddEventDeviceFinished(Device d , Job job)
         {
+            if (job == null)
+            { 
+                int x = 3;
+            }
+
             DeviceFinishedEvent ev = new DeviceFinishedEvent(d, job, scheduler.timestamp);
             scheduler.AddEvent(ev);
         }

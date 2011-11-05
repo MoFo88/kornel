@@ -142,8 +142,6 @@ namespace Kolejki.F
                 //next step
                 timestamp++;
 
-                System.Threading.Thread.Sleep(1000);
-
                 form.Notify("\n==" + this.timestamp + "==\n");
 
                 //
@@ -159,8 +157,6 @@ namespace Kolejki.F
                 }
             }
         }
-
-
 
         private void HandleEvent(Event myEvent)
         {
@@ -214,7 +210,7 @@ namespace Kolejki.F
                 //sprawdz, czy wolna maszyna
                 Device device = socket.GetFirstFreeDevice();
 
-                if (device != null)
+                if (device != null && !queue.IsEmpty)
                 {
                     Job job = queue.Get();
                     socket.AddJobToFirstFreeDevice(job);
@@ -266,7 +262,8 @@ namespace Kolejki.F
                 // mamy nastepny socket, sprobój dodac zadanie do kolejki
                 else
                 {
-                    Socket nextSocket  = socket.nextSockets.First();
+                    Socket nextSocket = socket.nextSockets.GetNextSocket();
+
 
                     if (nextSocket != null)
                     {
@@ -350,5 +347,169 @@ namespace Kolejki.F
         {
             eventList.Add(e);
         }
+
+        #region statistics
+
+        //
+        //devices statistics
+        public int AvgBusyTimeOnDevice(Device dev)
+        {
+            int avg = 0;
+            int count = 0;
+            
+            //get jobs on device
+            foreach (Job job in jobList)
+            {
+                MachineTime mt = job.GetMachineTimeForDevice(dev);
+
+                int start, stop;
+
+                if (mt.start < 0) continue;
+                else
+                {
+                    count++;
+                    start = mt.start;
+                }
+                
+                if (mt.stop > 0) stop = mt.stop;
+                else stop = timestamp;
+
+                int worktime = stop - start;
+
+                avg += worktime;
+            }
+            if (count == 0) return 0;
+            return avg/count;
+        }
+
+        public int AvgWorkTimeOnDevice(Device dev)
+        {
+            int avg = 0;
+            int count = 0;
+
+            //get jobs on device
+            foreach (Job job in jobList)
+            {
+                MachineTime mt = job.GetMachineTimeForDevice(dev);
+
+                int start, stop;
+
+                if (mt.start < 0) continue;
+                else
+                {
+                    count++;
+                    start = mt.start;
+                }
+
+                if (mt.stop > 0) stop = mt.stop;
+                else stop = timestamp;
+
+                int worktime = stop - start;
+
+                if (worktime > mt.sec) worktime = mt.sec;
+
+                avg += worktime;
+            }
+            if (count == 0) return 0;
+            return avg / count;
+        }
+
+        public int AllWorkTimeOnDevice(Device dev)
+        {
+            int time = 0;
+            int count = 0;
+
+            //get jobs on device
+            foreach (Job job in jobList)
+            {
+                MachineTime mt = job.GetMachineTimeForDevice(dev);
+                int start, stop;
+
+                if (mt.start < 0) continue;
+                else
+                {
+                    count++;
+                    start = mt.start;
+                }
+
+                if (mt.stop > 0) stop = mt.stop;
+                else stop = timestamp;
+
+                int worktime = stop - start;
+
+                if (worktime > mt.sec) worktime = mt.sec;
+
+                time += worktime;
+
+            }
+
+            return time;
+        }
+
+        public int AllBusyTimeOnDevice(Device dev)
+        {
+            int time = 0;
+            int count = 0;
+
+            //get jobs on device
+            foreach (Job job in jobList)
+            {
+                MachineTime mt = job.GetMachineTimeForDevice(dev);
+                int start, stop;
+
+                if (mt.start < 0) continue;
+                else
+                {
+                    count++;
+                    start = mt.start;
+                }
+
+                if (mt.stop > 0) stop = mt.stop;
+                else stop = timestamp;
+
+                int worktime = stop - start;
+
+                time += worktime;
+
+            }
+
+            return time;
+        }
+
+        //
+        //queues statistics
+        public int avgQueueTime(IQueue queue)
+        {
+            int avg = 0;
+            int count = 0;
+
+            foreach (Job job in jobList)
+            {
+                QueueTime qt = job.GetQueueTimeForQueue(queue);
+                int start, stop;
+
+                if (qt.start > 0)
+                {
+                    start = qt.start;
+
+                    if (qt.stop < 0)
+                    {
+                        stop = timestamp;
+                    }
+                    else
+                    {
+                        stop = qt.stop;
+                    }
+
+                    count ++;
+                    avg += stop - start;
+                }
+            }
+
+            if (count == 0) return 0;
+            return avg /= count;
+        }
+
+        #endregion statistics
     }
 }
