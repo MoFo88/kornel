@@ -13,11 +13,13 @@ namespace Kolejki.F
         public override Job Get()
         {
             Job job = null;
+            
             if (Count > 0)
             {
                 job = JobList.First();
                 JobList.RemoveAt(0);
                 AddEventGet();
+                job.GetQueueTimeForQueue(this).stop = scheduler.timestamp;
             }
             return job;
         }
@@ -29,17 +31,7 @@ namespace Kolejki.F
 
         public override bool Put(Job job)
         {
-            if (!IsFull)
-            {
-                if (!JobList.Contains(job)) JobList.Add(job);
-
-                AddEventPut();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return base.Put(job);
         }
     }
 }

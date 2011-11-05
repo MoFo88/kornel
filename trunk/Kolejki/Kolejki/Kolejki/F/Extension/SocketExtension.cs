@@ -14,6 +14,12 @@ namespace Kolejki.F
             return socket;
         }
 
+        public static Socket GetNextSocket(this List<Socket> nextSocketList)
+        {
+            List<Socket> socList = nextSocketList.Where(s => !s.queue.IsFull).ToList();
+            if (socList.Count > 0) return socList.First();
+            return null;
+        }
             
         public static Socket GetSocketWithDevice(this List<Socket> socketList, Device dev)
         {

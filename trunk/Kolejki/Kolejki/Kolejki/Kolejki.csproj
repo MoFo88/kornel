@@ -72,6 +72,7 @@
     <Compile Include="F\Queues\QueueFifo.cs" />
     <Compile Include="F\Queues\QueueLifo.cs" />
     <Compile Include="F\Queues\QueueRandom.cs" />
+    <Compile Include="F\QueueTime.cs" />
     <Compile Include="F\Socket.cs" />
     <Compile Include="F\Extension\SocketExtension.cs" />
     <Compile Include="MyMath\IDistribution.cs" />

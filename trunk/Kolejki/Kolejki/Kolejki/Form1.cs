@@ -141,6 +141,8 @@ namespace Kolejki
 
         public void Refresh()
         {
+            InitializeDevicesStatistics();
+            InitializeQueuesStatistics();
             InitializeDgvJobs();
             InitializeDgvQueue(1);
             InitializeDgvQueue(2);
@@ -150,6 +152,39 @@ namespace Kolejki
             for (int i = 1; i <= 7; i++)
             {
                 InitializeDgvDevice(i);
+            }
+        }
+
+        private void InitializeDevicesStatistics()
+        {
+            dgvStatsDevice.Rows.Clear();
+            foreach (Socket s in scheduler.socketList)
+            {
+                foreach (Device dev in s.deviceList)
+                {
+                    dgvStatsDevice.Rows.Add
+                        (
+                            dev.Id,
+                            scheduler.AllWorkTimeOnDevice(dev),
+                            scheduler.AllBusyTimeOnDevice(dev),
+                            scheduler.AvgWorkTimeOnDevice(dev),
+                            scheduler.AvgBusyTimeOnDevice(dev)
+                        );
+                }
+            }
+        }
+
+        private void InitializeQueuesStatistics()
+        {
+            dgvStatsQueue.Rows.Clear();
+            foreach (Socket s in scheduler.socketList)
+            {
+                
+                dgvStatsQueue.Rows.Add
+                    (
+                        s.queue.Name,
+                        scheduler.avgQueueTime(s.queue)
+                    );
             }
         }
 

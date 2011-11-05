@@ -11,7 +11,8 @@ namespace Kolejki.F
     {
         private static int ID = 0;
         
-        List<MachineTime> timeList;
+        public List<MachineTime> deviceTimeList;
+        public List<QueueTime> queueTimeList;
 
         public int Id { get; set; }
         public String Name { get; set; }
@@ -39,28 +40,45 @@ namespace Kolejki.F
             Name = "Zadanie " + Id;
             Distribution = distr;
 
-            timeList = new List<MachineTime>();
+            //
+            //lista czasów wykonywania zdania na maszynach
+            deviceTimeList = new List<MachineTime>();
+            queueTimeList = new List<QueueTime>();
 
             color = Color.FromArgb(((Id+10) * 20) % 255, (Id * 30) % 255, (Id * 40) % 255);
 
             foreach (Socket socket in globalSocketList)
             {
+                //initialize device time list
                 foreach (Device device in socket.deviceList)
                 {
                     MachineTime mt = new MachineTime();
                     mt.device = device;
                     mt.sec = Distribution.NextValue();
 
-                    timeList.Add(mt);
+                    deviceTimeList.Add(mt);
                 }
+
+                //initialize queue time list
+                IQueue queue = socket.queue;
+
+                QueueTime qt = new QueueTime();
+                qt.queue = queue;
+
+                queueTimeList.Add(qt);
             }
 
             Start = time;
         }
 
-        public int GetTimeForDevice(Device device)
+        public MachineTime GetMachineTimeForDevice(Device device)
         {
-            return timeList.SingleOrDefault(t => t.device == device).sec;
+            return deviceTimeList.SingleOrDefault(t => t.device == device);
+        }
+
+        public QueueTime GetQueueTimeForQueue(IQueue queue)
+        {
+            return queueTimeList.SingleOrDefault(t => t.queue == queue);
         }
 
         internal void Kill()

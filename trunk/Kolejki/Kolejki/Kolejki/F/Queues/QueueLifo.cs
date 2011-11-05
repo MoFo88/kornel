@@ -18,6 +18,7 @@ namespace Kolejki.F
                 job = JobList.Last();
                 JobList.Remove(job);
                 AddEventGet();
+                job.GetQueueTimeForQueue(this).stop = scheduler.timestamp;
             }
             return job;
         }
@@ -29,17 +30,7 @@ namespace Kolejki.F
 
         public override bool Put(Job job)
         {
-            if (!IsFull)
-            {
-                if (!JobList.Contains(job)) JobList.Add(job);
-
-                AddEventPut();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return base.Put(job);
         }
     }
 }
