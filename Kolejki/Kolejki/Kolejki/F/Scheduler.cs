@@ -24,11 +24,11 @@ namespace Kolejki.F
 
         public bool CheckIfGenerateJob()
         {
-            UniformDistr uniformDistr = new UniformDistr(1, 10);
+            UniformDistr uniformDistr = new UniformDistr(0, 100);
             double nextRandom = uniformDistr.NextValue();
  
             //TODO: mak as variable
-            if ( nextRandom <= 7 ) return true;
+            if ( nextRandom <= 35 ) return true;
             return false;
         }
 
@@ -55,21 +55,23 @@ namespace Kolejki.F
         {
             //hardcoded
 
-            QueueFifo q = new QueueFifo(this, 7);
+            QueueFifo q = new QueueFifo(this, 15);
             q.Name = "kolejka 1";
             Socket s1 = new Socket(q, this, true);
             Device d1 = new Device();
             Device d2 = new Device();
+            Device d8 = new Device();
             s1.AddDevice(d1);
             s1.AddDevice(d2);
+            s1.AddDevice(d8);
 
-            QueueLifo q2 = new QueueLifo(this, 2);
+            QueueLifo q2 = new QueueLifo(this, 1);
             q2.Name = "kolejka 2";
             Socket s2 = new Socket(q2, this);
             Device d3 = new Device();
             s2.AddDevice(d3);
 
-            QueueLifo q3 = new QueueLifo(this, 2);
+            QueueLifo q3 = new QueueLifo(this, 500);
             q3.Name = "kolejka 3";
             Socket s3 = new Socket(q3, this);
             Device d4 = new Device();
@@ -77,7 +79,7 @@ namespace Kolejki.F
             s3.AddDevice(d4);
             s3.AddDevice(d5);
 
-            QueueLifo q4 = new QueueLifo(this, 2);
+            QueueLifo q4 = new QueueLifo(this, 10);
             q4.Name = "kolejka 4";
             Socket s4 = new Socket(q4, this);
             Device d6 = new Device();

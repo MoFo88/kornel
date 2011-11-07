@@ -87,26 +87,31 @@ namespace Kolejki
                     label2.Text = dev.ToString();
                     break;
                 case 3:
+                    dgv = dgvDevice8;
+                    dev = scheduler.socketList[0].deviceList[2];
+                    label8.Text = dev.ToString();
+                    break;
+                case 4:
                     dgv = dgvDevice3;
                     dev = scheduler.socketList[1].deviceList[0];
                     label3.Text = dev.ToString();
                     break;
-                case 4:
+                case 5:
                     dgv = dgvDevice4;
                     dev = scheduler.socketList[2].deviceList[0];
                     label4.Text = dev.ToString();
                     break;
-                case 5:
+                case 6:
                     dgv = dgvDevice5;
                     dev = scheduler.socketList[2].deviceList[1];
                     label5.Text = dev.ToString();
                     break;
-                case 6:
+                case 7:
                     dgv = dgvDevice6;
                     dev = scheduler.socketList[3].deviceList[0];
                     label6.Text = dev.ToString();
                     break;
-                case 7:
+                case 8:
                     dgv = dgvDevice7;
                     dev = scheduler.socketList[3].deviceList[1];
                     label7.Text = dev.ToString();
@@ -149,7 +154,7 @@ namespace Kolejki
             InitializeDgvQueue(3);
             InitializeDgvQueue(4);
 
-            for (int i = 1; i <= 7; i++)
+            for (int i = 1; i <= 8; i++)
             {
                 InitializeDgvDevice(i);
             }
@@ -201,11 +206,6 @@ namespace Kolejki
 
         private void button1_Click(object sender, EventArgs e)
         {           
-            button1.Enabled = false;
-            scheduler.MakeEventStep();
-            Refresh();
-            button1.Enabled = true;
-
             timer1.Start();
         }
 
@@ -217,10 +217,8 @@ namespace Kolejki
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            button1.Enabled = false;
             scheduler.MakeEventStep();
             Refresh();
-            button1.Enabled = true;
         }
     }
 }
