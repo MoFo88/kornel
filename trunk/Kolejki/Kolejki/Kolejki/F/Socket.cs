@@ -7,12 +7,17 @@ namespace Kolejki.F
 {
     public class Socket
     {
+        //place
+        public int Coll { get; set; }
+        public int Row { get; set; }
+
         public Scheduler scheduler;
 
         public bool IsFirst { get; set; }
         public List<Device> deviceList;
         public List<Socket> prevSockets;
         public List<Socket> nextSockets;
+        public String Name {get; set;}
 
         public IQueue queue;
 
@@ -86,6 +91,11 @@ namespace Kolejki.F
 
             DeviceFinishedEvent ev = new DeviceFinishedEvent(d, job, scheduler.timestamp);
             scheduler.AddEvent(ev);
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
     

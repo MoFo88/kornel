@@ -13,10 +13,9 @@ namespace Kolejki
 {
     public partial class Form1 : Form
     {
-
+        List<SocketControl> socketControlList;
         Scheduler scheduler;
 
-        public void initializeApplication(){}
 
         private void InitializeDgv(DataGridView dgv, List<Job> jobList)
         {
@@ -45,81 +44,24 @@ namespace Kolejki
 
         public void InitializeDgvQueue(int nr)
         {
-            DataGridView dgv;
-            switch (nr)
-            {
-                case 1: 
-                    dgv = dgvQueue1; 
-                    break;
-                case 2:
-                    dgv = dgvQueue2;
-                    break;
-                case 3:
-                    dgv = dgvQueue3;
-                    break;
-                case 4:
-                    dgv = dgvQueue4;
-                    break;
-                default:
-                    throw new ApplicationException("Nieznana kolejka (dgv)");
-            }
-
+            SocketControl cosCtrl = socketControlList[nr];
+            DataGridView dgv = cosCtrl.Queue;
             dgv.Rows.Clear();
 
-            List<Job> l = scheduler.socketList[nr-1].queue.JobList;
+            List<Job> l = cosCtrl.Socket.queue.JobList;
             InitializeDgv(dgv, l);
         }
 
-        public void InitializeDgvDevice(int nr)
+        public void InitializeDgvDevice(int socNr, int devNr)
         {
-            DataGridView dgv;
-            Device dev;
-            switch (nr)
-            {
-                case 1:
-                    dgv = dgvDevice1;
-                    dev = scheduler.socketList[0].deviceList[0];
-                    label1.Text = dev.ToString();
-                    break;
-                case 2:
-                    dgv = dgvDevice2;
-                    dev = scheduler.socketList[0].deviceList[1];
-                    label2.Text = dev.ToString();
-                    break;
-                case 3:
-                    dgv = dgvDevice8;
-                    dev = scheduler.socketList[0].deviceList[2];
-                    label8.Text = dev.ToString();
-                    break;
-                case 4:
-                    dgv = dgvDevice3;
-                    dev = scheduler.socketList[1].deviceList[0];
-                    label3.Text = dev.ToString();
-                    break;
-                case 5:
-                    dgv = dgvDevice4;
-                    dev = scheduler.socketList[2].deviceList[0];
-                    label4.Text = dev.ToString();
-                    break;
-                case 6:
-                    dgv = dgvDevice5;
-                    dev = scheduler.socketList[2].deviceList[1];
-                    label5.Text = dev.ToString();
-                    break;
-                case 7:
-                    dgv = dgvDevice6;
-                    dev = scheduler.socketList[3].deviceList[0];
-                    label6.Text = dev.ToString();
-                    break;
-                case 8:
-                    dgv = dgvDevice7;
-                    dev = scheduler.socketList[3].deviceList[1];
-                    label7.Text = dev.ToString();
-                    break;
-           
-                default:
-                    throw new ApplicationException("Nieznana maszyna (dgv)");
-            }
+            SocketControl cosCtrl = socketControlList[socNr];
+            DataGridView dgv = cosCtrl.DeviceList[devNr];
+            Device dev = (Device)dgv.Tag;
+
+            //todo: label device
+            //dev = scheduler.socketList[0].deviceList[0];
+            //label1.Text = dev.ToString();
+            
 
             Job job = dev.CurrentJob;
             dgv.Rows.Clear();
@@ -149,14 +91,16 @@ namespace Kolejki
             InitializeDevicesStatistics();
             InitializeQueuesStatistics();
             InitializeDgvJobs();
-            InitializeDgvQueue(1);
-            InitializeDgvQueue(2);
-            InitializeDgvQueue(3);
-            InitializeDgvQueue(4);
 
-            for (int i = 1; i <= 8; i++)
+            for (int i = 0; i < socketControlList.Count; i++)
             {
-                InitializeDgvDevice(i);
+                SocketControl socCtrl = socketControlList[i];
+                InitializeDgvQueue(i);
+
+                for (int j = 0; j < socCtrl.DeviceList.Count; j++)
+                {
+                    InitializeDgvDevice(i, j);
+                }
             }
         }
 
@@ -193,15 +137,12 @@ namespace Kolejki
             }
         }
 
-        public Form1()
+        public Form1(Scheduler s)
         {
             InitializeComponent();
-        }
+            scheduler = s;
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            scheduler = new Scheduler(this);
-            scheduler.Initialize();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -219,6 +160,33 @@ namespace Kolejki
         {
             scheduler.MakeEventStep();
             Refresh();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                socketControlList = new List<SocketControl>();
+
+                //
+                //create cos controls
+                foreach (Socket soc in scheduler.socketList)
+                {
+                    SocketControl cosContr = new SocketControl(soc);
+                    socketControlList.Add(cosContr);
+                }
+
+                foreach (var control in socketControlList)
+                {
+                    control.Location = new Point((control.Socket.Coll - 1) * (Const.CONTROL_SOCKET_WIDTH+15), (control.Socket.Row - 1) *( Const.CONTROL_SOCKET_HEIGHT+15));
+                    this.panelSockets.Controls.Add(control);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
