@@ -49,7 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="F\Const.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="FormAddSocket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddSocket.Designer.cs">
+      <DependentUpon>FormAddSocket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInitialize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInitialize.Designer.cs">
+      <DependentUpon>FormInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMakeConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMakeConnection.Designer.cs">
+      <DependentUpon>FormMakeConnection.cs</DependentUpon>
+    </Compile>
     <Compile Include="F\Events\DeviceEmptyEvent.cs" />
     <Compile Include="F\Events\DeviceFinishedEvent.cs" />
     <Compile Include="F\Events\Event.cs" />
@@ -81,8 +99,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="F\Scheduler.cs" />
+    <Compile Include="QueueTypeEnum.cs" />
+    <Compile Include="SocketControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SocketControl.Designer.cs">
+      <DependentUpon>SocketControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddSocket.resx">
+      <DependentUpon>FormAddSocket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInitialize.resx">
+      <DependentUpon>FormInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMakeConnection.resx">
+      <DependentUpon>FormMakeConnection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -93,6 +127,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SocketControl.resx">
+      <DependentUpon>SocketControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

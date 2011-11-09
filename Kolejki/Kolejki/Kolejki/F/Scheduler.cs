@@ -46,57 +46,10 @@ namespace Kolejki.F
             socketList = new List<Socket>();
             eventList = new List<Event>();
             jobList = new List<Job>();
-            this.form = new Form1();
+            this.form = new Form1(this);
             timestamp = 0;
         }
 
-        //todo: remove hardcore data
-        public void Initialize()
-        {
-            //hardcoded
-
-            QueueFifo q = new QueueFifo(this, 15);
-            q.Name = "kolejka 1";
-            Socket s1 = new Socket(q, this, true);
-            Device d1 = new Device();
-            Device d2 = new Device();
-            Device d8 = new Device();
-            s1.AddDevice(d1);
-            s1.AddDevice(d2);
-            s1.AddDevice(d8);
-
-            QueueLifo q2 = new QueueLifo(this, 1);
-            q2.Name = "kolejka 2";
-            Socket s2 = new Socket(q2, this);
-            Device d3 = new Device();
-            s2.AddDevice(d3);
-
-            QueueLifo q3 = new QueueLifo(this, 500);
-            q3.Name = "kolejka 3";
-            Socket s3 = new Socket(q3, this);
-            Device d4 = new Device();
-            Device d5 = new Device();
-            s3.AddDevice(d4);
-            s3.AddDevice(d5);
-
-            QueueLifo q4 = new QueueLifo(this, 10);
-            q4.Name = "kolejka 4";
-            Socket s4 = new Socket(q4, this);
-            Device d6 = new Device();
-            Device d7 = new Device();
-            s4.AddDevice(d6);
-            s4.AddDevice(d7);
-
-            Socket.MakeConnection(s1, s2);
-            Socket.MakeConnection(s1, s3);
-            Socket.MakeConnection(s3, s4);
-            Socket.MakeConnection(s2, s4);
-
-            socketList.Add(s1);
-            socketList.Add(s2);
-            socketList.Add(s3);
-            socketList.Add(s4);
-        }
 
         //public void MakeStep()
         //{

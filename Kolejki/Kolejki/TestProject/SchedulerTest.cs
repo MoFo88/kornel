@@ -77,7 +77,6 @@ namespace TestProject
         public void loopTest()
         {
             Scheduler scheduler = new Scheduler();
-            scheduler.Initialize();
 
             Socket s1 = scheduler.socketList.GetFirstSocket();
 
