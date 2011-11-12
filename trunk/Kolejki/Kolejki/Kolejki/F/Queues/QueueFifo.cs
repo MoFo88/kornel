@@ -6,9 +6,11 @@ using System.Text;
 namespace Kolejki.F
 {
     class QueueFifo : Queue
-    {
-        
-        public QueueFifo(Scheduler s, int size) : base(s, size){}
+    { 
+        public QueueFifo(Scheduler s, int size) : base(s, size)
+        {
+            Name = "QFifo" + Id; 
+        }
 
         public override Job Get()
         {

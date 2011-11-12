@@ -7,6 +7,8 @@ namespace Kolejki.F
 {
     public abstract class Queue : IQueue
     {
+        public static int lastId = 0;
+        public int Id { get; set; }
         public String Name { get; set; }
         public List<Job> JobList {get; set;}
 
@@ -14,6 +16,8 @@ namespace Kolejki.F
         
         public Queue(Scheduler s, int size)
         {
+            ++lastId;
+            Id = lastId;
             scheduler = s;
             Size = size;
             JobList = new List<Job>();
@@ -21,12 +25,7 @@ namespace Kolejki.F
 
         public override string ToString()
         {
-            String s = Name + ": ";
-
-            foreach (var x in JobList)
-            {
-                s += x.Id + ", ";
-            }
+            String s = Name + ": " + this.Count +"/"+ this.Size;
 
             return s;
         }

@@ -7,7 +7,7 @@ namespace Kolejki.F
 {
     public class Device
     {
-        static int lastId = 0;
+        public static int lastId = 0;
         private Job currentJob;
         public Socket socket;
         public int Id { get; set; }
@@ -44,8 +44,8 @@ namespace Kolejki.F
 
         public override string ToString()
         {
-            String s = s = "dev " + Id + " - E ( w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
-            if (CurrentJob != null) s = "dev " + Id + " - " + (socket.scheduler.timestamp - jobStart) + "/" +  CurrentJob.GetMachineTimeForDevice(this).sec +  " (w: " + IsWorking.ToString()[0] + " b:" + IsBusy.ToString()[0] + ")";
+            String s = s = "d" + Id + ": E";
+            if (CurrentJob != null) s = "d" + Id + ": " + (socket.scheduler.timestamp - jobStart) + "/" +  CurrentJob.GetMachineTimeForDevice(this).sec;
             return s;
         }
 

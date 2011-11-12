@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Kolejki.F;
 using Kolejki.MyMath;
+using System.Drawing.Drawing2D;
 
 namespace Kolejki 
 {
@@ -48,6 +49,8 @@ namespace Kolejki
             DataGridView dgv = cosCtrl.Queue;
             dgv.Rows.Clear();
 
+            cosCtrl.labebQueue.Text = cosCtrl.Socket.queue.ToString();
+
             List<Job> l = cosCtrl.Socket.queue.JobList;
             InitializeDgv(dgv, l);
         }
@@ -59,10 +62,8 @@ namespace Kolejki
             Device dev = (Device)dgv.Tag;
 
             //todo: label device
-            //dev = scheduler.socketList[0].deviceList[0];
-            //label1.Text = dev.ToString();
+            cosCtrl.devlabels[devNr].Text = dev.ToString();
             
-
             Job job = dev.CurrentJob;
             dgv.Rows.Clear();
 
@@ -71,11 +72,11 @@ namespace Kolejki
 
             if (dev.IsWorking)
             {
-                dgv.BackgroundColor = Color.Black;
+                dgv.BackgroundColor = Color.DarkGreen;
             }
             else if (dev.IsBusy)
             {
-                dgv.BackgroundColor = Color.Gray;
+                dgv.BackgroundColor = Color.GreenYellow;
             }
             else
             {
@@ -88,6 +89,9 @@ namespace Kolejki
 
         public void Refresh()
         {
+            labelJobsCount.Text = scheduler.jobList.Count().ToString();
+            labelKilledJobsCount.Text = scheduler.killedJobsList.Count().ToString();
+
             InitializeDevicesStatistics();
             InitializeQueuesStatistics();
             InitializeDgvJobs();
@@ -132,44 +136,35 @@ namespace Kolejki
                 dgvStatsQueue.Rows.Add
                     (
                         s.queue.Name,
-                        scheduler.avgQueueTime(s.queue)
+                        scheduler.avgQueueTime(s.queue),
+                        scheduler.sumQueueTime(s.queue),
+                        scheduler.maxQueueTime(s.queue),
+                        scheduler.maxQueueCount(s.queue),
+                        scheduler.avgQueueCount(s.queue)
                     );
             }
         }
-
+  
         public Form1(Scheduler s)
         {
-            InitializeComponent();
             scheduler = s;
-
-            
+            InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {           
-            timer1.Start();
-        }
-
-       
-        public void Notify(String message)
+        public void Notify(String message, int i  = 0)
         {
-            richTextBox.Text = message + "\n" +  richTextBox.Text; 
+            if (i == 1) richTextBox.Text = message + "\n" +  richTextBox.Text; 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            scheduler.MakeEventStep();
-            Refresh();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        public void OnLoad()
         {
             try
             {
+                this.panelSockets.Controls.Clear();
                 socketControlList = new List<SocketControl>();
 
                 //
-                //create cos controls
+                //create soc controls
                 foreach (Socket soc in scheduler.socketList)
                 {
                     SocketControl cosContr = new SocketControl(soc);
@@ -178,7 +173,7 @@ namespace Kolejki
 
                 foreach (var control in socketControlList)
                 {
-                    control.Location = new Point((control.Socket.Coll - 1) * (Const.CONTROL_SOCKET_WIDTH+15), (control.Socket.Row - 1) *( Const.CONTROL_SOCKET_HEIGHT+15));
+                    control.Location = new Point(control.Socket.X, control.Socket.Y);
                     this.panelSockets.Controls.Add(control);
                 }
 
@@ -187,6 +182,78 @@ namespace Kolejki
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            OnLoad();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            scheduler.MakeStep();
+            Refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            scheduler.MakeEventStep();
+            Refresh();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            scheduler.MakeStep();
+            Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            
+            //
+            //lines
+            foreach (var socketControl in socketControlList)
+            {
+                Socket prev = socketControl.Socket;
+
+                //from 
+                int prevX = prev.X + Const.CONTROL_SOCKET_WIDTH;
+                int prevY = prev.Y + socketControl.Height/2;
+
+                foreach (var next in prev.nextSockets)
+                {
+                    var nextSocketControl = socketControlList.SingleOrDefault( sc => sc.Socket == next );
+
+                    //next
+                    int nextX = next.X;
+                    int nextY = next.Y + nextSocketControl.Height/2;
+                    
+
+                    //draw
+                    Graphics formGraphics = this.panelSockets.CreateGraphics();
+
+                    using (Brush aGradientBrush = new LinearGradientBrush(new Point(prevX, prevY), new Point(nextX, nextY), Color.Black, Color.Red))
+                    {
+                        using (Pen Pen = new Pen(aGradientBrush, 2))
+                        {
+                            formGraphics.DrawLine(Pen, prevX, prevY, nextX, nextY);
+                        }
+                        formGraphics.Dispose(); 
+                    }
+                }
+            }
+
+            
         }
     }
 }

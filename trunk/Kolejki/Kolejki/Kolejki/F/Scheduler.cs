@@ -13,8 +13,13 @@ namespace Kolejki.F
          
         public List<Job> jobList;
         public List<Socket> socketList;
-        public List<IQueue> queueList;
         public List<Event> eventList;
+        public List<Job> killedJobsList;
+
+        //
+        //for stats
+        public List<QueueSize> queueSize = new List<QueueSize>();
+        
         public Form1 form;
 
         public void AddEvent(Event ev)
@@ -22,93 +27,97 @@ namespace Kolejki.F
             eventList.Add(ev);
         }
 
-        public bool CheckIfGenerateJob()
+        public bool CheckIfGenerateJob(int prob)
         {
             UniformDistr uniformDistr = new UniformDistr(0, 100);
             double nextRandom = uniformDistr.NextValue();
  
             //TODO: mak as variable
-            if ( nextRandom <= 35 ) return true;
+            if ( nextRandom <= prob ) return true;
             return false;
         }
 
-        public Scheduler(Form1 form)
-        {
-            socketList = new List<Socket>();
-            eventList = new List<Event>();
-            jobList = new List<Job>();
-            this.form = form;
-            timestamp = 0;
-        }
 
         public Scheduler()
         {
             socketList = new List<Socket>();
             eventList = new List<Event>();
             jobList = new List<Job>();
+            killedJobsList = new List<Job>();
             this.form = new Form1(this);
             timestamp = 0;
         }
 
-
-        //public void MakeStep()
-        //{
-        //    //next step
-        //    timestamp++;
-
-        //    form.Notify("\n==" + this.timestamp + "==\n");
-
-        //    //
-        //    //todo: wybierz, który rozkład, parametry rokładu   
-        //    //wygenerój zadanie
-        //    if (CheckIfGenerateJob())
-        //    {
-        //        Job job = jobList.Create(new NormalDistr(10, 5), socketList, this.timestamp, this);
-
-        //        //
-        //        //tell
-        //        form.Notify(timestamp + ". " + "Zadanie dodane: " + job.ToString());
-        //    }
-
-        //    //
-        //    //obsługa zdarzeń
-        //    while (eventList.Where(e => e.timestamp <= timestamp).ToList().Count > 0)
-        //    {
-        //        Event myEvent = eventList.Where(e => e.timestamp <= this.timestamp).First();
-        //        HandleEvent(myEvent);
-
-        //        eventList.Remove(myEvent);
-        //    }
-        //}
-
-        public void MakeEventStep()
+        public void JobGeneration()
         {
+            if (CheckIfGenerateJob(Const.JOB_NORMAL_GENERATE_PROBABILITY))
+            {
+                Job job = jobList.Create(new NormalDistr(Const.NORMAL_MU, Const.NORLAN_SIGMA) , socketList, this.timestamp, this);
 
-            if (eventList.Where(e => e.timestamp <= timestamp).ToList().Count > 0)
+                //
+                //tell
+                form.Notify(timestamp + ". " + "Zadanie dodane: " + job.ToString());
+            }
+
+            if (CheckIfGenerateJob(Const.JOB_UNIFORM_GENERATE_PROBABILITY))
+            {
+                Job job = jobList.Create(new UniformDistr(Const.UNIFORM_MIN, Const.UNIFORM_MAX), socketList, this.timestamp, this);
+
+                //
+                //tell
+                form.Notify(timestamp + ". " + "Zadanie dodane: " + job.ToString());
+            }
+        }
+
+        public void MakeStep()
+        {
+            //next step
+            timestamp++;
+
+            form.Notify("\n==" + this.timestamp + "==\n", 1);
+
+            JobGeneration();
+
+            //
+            //obsługa zdarzeń
+            while (eventList.Where(e => e.timestamp <= timestamp).ToList().Count > 0)
             {
                 Event myEvent = eventList.Where(e => e.timestamp <= this.timestamp).First();
                 HandleEvent(myEvent);
 
                 eventList.Remove(myEvent);
             }
+
+            //
+            //remember queue size in timestamp
+            foreach (Socket s in socketList)
+            {
+                IQueue q = s.queue;
+                queueSize.Add(new QueueSize(timestamp, q, q.Count));
+            }
+        }
+
+        public void MakeEventStep()
+        {
+            if (eventList.Where(e => e.timestamp <= timestamp).ToList().Count > 0)
+            {
+                Event myEvent = eventList.Where(e => e.timestamp <= this.timestamp).First();
+                HandleEvent(myEvent);
+                eventList.Remove(myEvent);
+            }
             else
             {
-
                 //next step
                 timestamp++;
-
-                form.Notify("\n==" + this.timestamp + "==\n");
+                form.Notify("\n==" + this.timestamp + "==\n",1);
+                JobGeneration();
 
                 //
-                //todo: wybierz, który rozkład, parametry rokładu   
-                //wygenerój zadanie
-                if (CheckIfGenerateJob())
+                //remember queue size in timestamp
+                foreach (Socket s in socketList)
                 {
-                    Job job = jobList.Create(new NormalDistr(10, 5), socketList, this.timestamp, this);
-
-                    //
-                    //tell
-                    form.Notify(timestamp + ". " + "Zadanie dodane: " + job.ToString() + ", ");
+                    IQueue q = s.queue;
+                    queueSize.Add(new QueueSize(timestamp, q, q.Count));
                 }
             }
         }
@@ -124,20 +133,20 @@ namespace Kolejki.F
                 JobGenerationEvent ev = (JobGenerationEvent)myEvent;
                 Job job = ev.job;
 
-                Socket s = socketList.GetFirstSocket();
+                Socket s = socketList.GetFirstFreeSocket();
 
-                bool added = s.queue.Put(job);
+                bool added = false;
+                if (s != null)  added = s.queue.Put(job);
 
                 if (added)
                 {
-
                     //
                     //tell
                     tell += timestamp + ": zad " + job.ToString() + " -> " + s.queue.ToString()+", ";
                 }
                 else
                 {
-                    jobList.Kill( job );
+                    jobList.Kill(killedJobsList, job );
 
                     //
                     //tell
@@ -217,8 +226,7 @@ namespace Kolejki.F
                 // mamy nastepny socket, sprobój dodac zadanie do kolejki
                 else
                 {
-                    Socket nextSocket = socket.nextSockets.GetNextSocket();
-
+                    Socket nextSocket = socket.nextSockets.GetNextFreeSocket();
 
                     if (nextSocket != null)
                     {
@@ -307,16 +315,15 @@ namespace Kolejki.F
 
         //
         //devices statistics
-        public int AvgBusyTimeOnDevice(Device dev)
+        public double AvgBusyTimeOnDevice(Device dev)
         {
-            int avg = 0;
+            int sum = 0;
             int count = 0;
             
             //get jobs on device
             foreach (Job job in jobList)
             {
                 MachineTime mt = job.GetMachineTimeForDevice(dev);
-
                 int start, stop;
 
                 if (mt.start < 0) continue;
@@ -328,18 +335,16 @@ namespace Kolejki.F
                 
                 if (mt.stop > 0) stop = mt.stop;
                 else stop = timestamp;
-
                 int worktime = stop - start;
-
-                avg += worktime;
+                sum += worktime;
             }
             if (count == 0) return 0;
-            return avg/count;
+            return (double)sum/count;
         }
 
-        public int AvgWorkTimeOnDevice(Device dev)
+        public double AvgWorkTimeOnDevice(Device dev)
         {
-            int avg = 0;
+            int sum = 0;
             int count = 0;
 
             //get jobs on device
@@ -358,15 +363,12 @@ namespace Kolejki.F
 
                 if (mt.stop > 0) stop = mt.stop;
                 else stop = timestamp;
-
                 int worktime = stop - start;
-
                 if (worktime > mt.sec) worktime = mt.sec;
-
-                avg += worktime;
+                sum += worktime;
             }
             if (count == 0) return 0;
-            return avg / count;
+            return (double)sum / count;
         }
 
         public int AllWorkTimeOnDevice(Device dev)
@@ -389,13 +391,9 @@ namespace Kolejki.F
 
                 if (mt.stop > 0) stop = mt.stop;
                 else stop = timestamp;
-
                 int worktime = stop - start;
-
                 if (worktime > mt.sec) worktime = mt.sec;
-
                 time += worktime;
-
             }
 
             return time;
@@ -431,9 +429,45 @@ namespace Kolejki.F
             return time;
         }
 
+        public int AllStartedJobsCount(Device dev)
+        {
+            return jobList
+                .Where
+                (
+                    j =>
+                    j.GetMachineTimeForDevice(dev).start >= 0
+                )
+                .Count();
+        }
+
+        public int AllStartedUJobsCount(Device dev)
+        {
+
+            return jobList
+                .Where
+                (
+                    j => 
+                    j.Distribution is UniformDistr 
+                    && j.GetMachineTimeForDevice(dev).start >= 0
+                )
+                .Count();
+        }
+
+        public int AllStartedNJobsCount(Device dev)
+        {
+            return jobList
+                .Where
+                (
+                    j =>
+                    j.Distribution is NormalDistr
+                    && j.GetMachineTimeForDevice(dev).start >= 0
+                )
+                .Count();
+        }
+
         //
         //queues statistics
-        public int avgQueueTime(IQueue queue)
+        public double avgQueueTime(IQueue queue)
         {
             int avg = 0;
             int count = 0;
@@ -465,6 +499,96 @@ namespace Kolejki.F
             return avg /= count;
         }
 
+        public int sumQueueTime(IQueue queue)
+        {
+            int sum = 0;
+            int count = 0;
+
+            foreach (Job job in jobList)
+            {
+                QueueTime qt = job.GetQueueTimeForQueue(queue);
+                int start, stop;
+
+                if (qt.start > 0)
+                {
+                    start = qt.start;
+
+                    if (qt.stop < 0)
+                    {
+                        stop = timestamp;
+                    }
+                    else
+                    {
+                        stop = qt.stop;
+                    }
+
+                    count++;
+                    sum += stop - start;
+                }
+            }
+
+            if (count == 0) return 0;
+            return sum;
+        }
+
+        public int? maxQueueTime(IQueue queue)
+        {
+            int? resut = null;
+            foreach (Job job in jobList)
+            {
+                QueueTime qt = job.GetQueueTimeForQueue(queue);
+                int start, stop;
+
+                if (qt.start > 0)
+                {
+                    start = qt.start;
+
+                    if (qt.stop > 0)
+                    {
+                        stop = qt.stop;
+
+                        int time = stop - start;
+
+                        if (resut != null)
+                        {
+                            resut = Math.Max(time, resut.Value);
+                        }
+                        else
+                        {
+                            resut = time;
+                        }
+                    }
+                }
+            }
+
+            return resut;
+        }
+
+        //
+        public int maxQueueCount(IQueue queue)
+        {
+            List<QueueSize> queueSizes = queueSize.Where(x => x.Queue == queue).ToList();
+            if (queueSizes.Count == 0) return 0;
+            return queueSizes.Max(qs => qs.Size);
+        }
+
+        public double avgQueueCount(IQueue queue)
+        {
+            List<QueueSize> queueSizes = queueSize.Where(x => x.Queue == queue).ToList();
+            if (queueSizes.Count == 0) return 0;
+
+            int sumQueueCount = 0;
+
+            for (int i = 1; i < timestamp; ++i )
+            {
+                sumQueueCount += queueSizes.SingleOrDefault(qs => qs.Timestamp == i).Size;
+            }
+
+            return (double)sumQueueCount / timestamp;
+
+        }
+
         #endregion statistics
+
     }
 }

@@ -34,8 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "SocketControl";
-            this.Size = new System.Drawing.Size(110, 137);
+            this.Size = new System.Drawing.Size(108, 135);
             this.ResumeLayout(false);
 
         }

@@ -7,9 +7,11 @@ namespace Kolejki.F
 {
     public class Socket
     {
+        public static int lastId = 0;
+
         //place
-        public int Coll { get; set; }
-        public int Row { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public Scheduler scheduler;
 
@@ -17,12 +19,18 @@ namespace Kolejki.F
         public List<Device> deviceList;
         public List<Socket> prevSockets;
         public List<Socket> nextSockets;
-        public String Name {get; set;}
+        public int Probability { get; set; }
+
+        public int Id  {get; set;}
 
         public IQueue queue;
 
         public Socket(IQueue q, Scheduler s,  bool isFirst = false)
         {
+            ++lastId;
+
+            Id = lastId;
+
             this.IsFirst = isFirst;
             queue = q;
             deviceList = new List<Device>();
@@ -37,11 +45,14 @@ namespace Kolejki.F
             dev.socket = this;
         }
 
-        public static void MakeConnection(Socket prev, Socket next)
+        public static void MakeConnection(Socket prev, Socket next, int probability = 100)
         {
+            if (prev == next) return;
+
             if (!prev.nextSockets.Contains(next))
             {
                 prev.nextSockets.Add(next);
+                next.Probability = probability;
             }
 
             if (!next.prevSockets.Contains(prev))
@@ -95,7 +106,7 @@ namespace Kolejki.F
 
         public override string ToString()
         {
-            return Name;
+            return "s" + Id;
         }
     }
     
