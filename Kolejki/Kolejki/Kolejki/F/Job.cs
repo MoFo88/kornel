@@ -19,7 +19,7 @@ namespace Kolejki.F
         public String ToStr { get { return Id + "[" + Start + "], " + Distribution.Name[0]; } }
         public int Start {get; set;}
         public int Stop { get; set; }
-        IDistribution Distribution { get; set; }
+        public IDistribution Distribution { get; set; }
 
         public Color color;
 

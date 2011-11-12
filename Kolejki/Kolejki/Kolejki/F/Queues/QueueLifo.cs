@@ -7,7 +7,10 @@ namespace Kolejki.F
 {
     public class QueueLifo : Queue
     {
-        public QueueLifo(Scheduler s, int size) : base(s, size) { Name = "QLifo"; }
+        public QueueLifo(Scheduler s, int size) : base(s, size) 
+        {
+            Name = "QLifo" + Id; 
+        }
 
 
         public override Job Get()

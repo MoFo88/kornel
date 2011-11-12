@@ -21,7 +21,7 @@ namespace Kolejki
 
             scheduler = new Scheduler();
 
-            Application.Run(new FormInitialize(scheduler));
+            Application.Run(new FormInit(scheduler));
 
         }
     }

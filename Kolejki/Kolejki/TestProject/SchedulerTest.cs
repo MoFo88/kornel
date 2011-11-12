@@ -78,7 +78,7 @@ namespace TestProject
         {
             Scheduler scheduler = new Scheduler();
 
-            Socket s1 = scheduler.socketList.GetFirstSocket();
+            Socket s1 = scheduler.socketList.GetFirstFreeSocket();
 
             Assert.AreEqual(0, s1.queue.Count);
 

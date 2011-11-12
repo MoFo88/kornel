@@ -50,23 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Const.cs" />
-    <Compile Include="FormAddSocket.cs">
+    <Compile Include="FormInit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddSocket.Designer.cs">
-      <DependentUpon>FormAddSocket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormInitialize.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInitialize.Designer.cs">
-      <DependentUpon>FormInitialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMakeConnection.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMakeConnection.Designer.cs">
-      <DependentUpon>FormMakeConnection.cs</DependentUpon>
+    <Compile Include="FormInit.Designer.cs">
+      <DependentUpon>FormInit.cs</DependentUpon>
     </Compile>
     <Compile Include="F\Events\DeviceEmptyEvent.cs" />
     <Compile Include="F\Events\DeviceFinishedEvent.cs" />
@@ -79,11 +67,11 @@
     </Compile>
     <Compile Include="F\Device.cs" />
     <Compile Include="F\Events\GetFromQueueEvent.cs" />
+    <Compile Include="F\QueueSize.cs" />
     <Compile Include="F\Queues\IQueue.cs" />
     <Compile Include="F\Extension\JobExtension.cs" />
     <Compile Include="F\Events\JobGenerationEvent.cs" />
     <Compile Include="F\MachineTime.cs" />
-    <Compile Include="F\ProbabilitySocket.cs" />
     <Compile Include="F\Job.cs" />
     <Compile Include="F\Events\PutToQueueEvent.cs" />
     <Compile Include="F\Queues\Queue.cs" />
@@ -93,9 +81,9 @@
     <Compile Include="F\QueueTime.cs" />
     <Compile Include="F\Socket.cs" />
     <Compile Include="F\Extension\SocketExtension.cs" />
-    <Compile Include="MyMath\IDistribution.cs" />
-    <Compile Include="MyMath\NormalDistr.cs" />
-    <Compile Include="MyMath\UniformDistr.cs" />
+    <Compile Include="F\MyMath\IDistribution.cs" />
+    <Compile Include="F\MyMath\NormalDistr.cs" />
+    <Compile Include="F\MyMath\UniformDistr.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="F\Scheduler.cs" />
@@ -109,14 +97,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddSocket.resx">
-      <DependentUpon>FormAddSocket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormInitialize.resx">
-      <DependentUpon>FormInitialize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMakeConnection.resx">
-      <DependentUpon>FormMakeConnection.cs</DependentUpon>
+    <EmbeddedResource Include="FormInit.resx">
+      <DependentUpon>FormInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

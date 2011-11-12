@@ -8,7 +8,10 @@ namespace Kolejki.F
     public class QueueRandom : Queue
     {
 
-        public QueueRandom(Scheduler s, int size) : base(s, size) { Name = "QRandom"; }
+        public QueueRandom(Scheduler s, int size) : base(s, size) 
+        {
+            Name = "QRand" + Id; 
+        }
 
         public override Job Get()
         {

@@ -7,18 +7,38 @@ namespace Kolejki.F
 {
     public static class SocketExtension
     {
-        public static Socket GetFirstSocket(this List<Socket> socketList)
+        public static Socket GetFirstFreeSocket(this List<Socket> socketList)
         {
-            List<Socket> sl = socketList.Where(s => s.IsFirst == true).ToList();
-            Socket socket = sl.First();
+            List<Socket> sl = socketList.Where(s => s.IsFirst == true && !s.queue.IsFull).ToList();
+
+            if (sl.Count == 0) return null;
+            
+            int count = sl.Count;
+
+            int index = new Random().Next(0, count);
+
+            Socket socket = sl[index];
             return socket;
         }
 
-        public static Socket GetNextSocket(this List<Socket> nextSocketList)
+        public static Socket GetNextFreeSocket(this List<Socket> nextSocketList)
         {
             List<Socket> socList = nextSocketList.Where(s => !s.queue.IsFull).ToList();
-            if (socList.Count > 0) return socList.First();
-            return null;
+
+            if (socList.Count == 0) return null;
+
+            int probability = 0;
+            socList.ForEach(s => probability += s.Probability);
+
+            int ranNumber = new Random().Next(0, probability);
+
+            int count = 0;
+            foreach (var soc in socList)
+            {
+                count += soc.Probability;
+                if (ranNumber <= count) return soc;
+            }
+            return socList.Last();
         }
             
         public static Socket GetSocketWithDevice(this List<Socket> socketList, Device dev)
