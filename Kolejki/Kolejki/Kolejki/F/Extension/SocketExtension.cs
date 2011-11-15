@@ -46,17 +46,23 @@ namespace Kolejki.F
             return socketList.SingleOrDefault( s => s.deviceList.Contains(dev) == true );
         }
 
-        public static Device GetFirstBusyDevice(this List<Socket> socketList)
+        public static Device GetBusyDevice(this List<Socket> socketList)
         {
+            List<Device> devList = new List<Device>();
+            
             foreach (Socket s in socketList)
             {
                 foreach (Device dev in s.deviceList)
                 {
-                    if (!dev.IsWorking && dev.IsBusy) return dev;
+                    if (!dev.IsWorking && dev.IsBusy) devList.Add(dev);
                 }
             }
 
-            return null;
+            if (devList.Count == 0) return null;
+
+            int rand = new Random().Next(0, devList.Count);
+            return devList[rand];
+
         }
     }
 }

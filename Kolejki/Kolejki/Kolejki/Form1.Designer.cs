@@ -41,16 +41,16 @@
             this.avgW = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avgB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStatsQueue = new System.Windows.Forms.DataGridView();
-            this.panelSockets = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.QuId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AvgTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avgQCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelSockets = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.labelJobsCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -108,7 +108,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // dgvStatsDevice
@@ -178,11 +178,45 @@
             this.dgvStatsQueue.Size = new System.Drawing.Size(325, 148);
             this.dgvStatsQueue.TabIndex = 23;
             // 
+            // QuId
+            // 
+            this.QuId.HeaderText = "Qu Id";
+            this.QuId.Name = "QuId";
+            // 
+            // AvgTime
+            // 
+            this.AvgTime.HeaderText = "avg t";
+            this.AvgTime.Name = "AvgTime";
+            // 
+            // sumT
+            // 
+            this.sumT.HeaderText = "sum time";
+            this.sumT.Name = "sumT";
+            this.sumT.ReadOnly = true;
+            // 
+            // maxT
+            // 
+            this.maxT.HeaderText = "max time";
+            this.maxT.Name = "maxT";
+            this.maxT.ReadOnly = true;
+            // 
+            // maxCount
+            // 
+            this.maxCount.HeaderText = "max count";
+            this.maxCount.Name = "maxCount";
+            // 
+            // avgQCount
+            // 
+            this.avgQCount.HeaderText = "avg count";
+            this.avgQCount.Name = "avgQCount";
+            this.avgQCount.ReadOnly = true;
+            // 
             // panelSockets
             // 
             this.panelSockets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSockets.AutoScroll = true;
             this.panelSockets.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelSockets.Location = new System.Drawing.Point(97, 195);
             this.panelSockets.Name = "panelSockets";
@@ -218,39 +252,6 @@
             this.button4.Text = "Stop timer";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // QuId
-            // 
-            this.QuId.HeaderText = "Qu Id";
-            this.QuId.Name = "QuId";
-            // 
-            // AvgTime
-            // 
-            this.AvgTime.HeaderText = "avg t";
-            this.AvgTime.Name = "AvgTime";
-            // 
-            // sumT
-            // 
-            this.sumT.HeaderText = "sum time";
-            this.sumT.Name = "sumT";
-            this.sumT.ReadOnly = true;
-            // 
-            // maxT
-            // 
-            this.maxT.HeaderText = "max time";
-            this.maxT.Name = "maxT";
-            this.maxT.ReadOnly = true;
-            // 
-            // maxCount
-            // 
-            this.maxCount.HeaderText = "max count";
-            this.maxCount.Name = "maxCount";
-            // 
-            // avgQCount
-            // 
-            this.avgQCount.HeaderText = "avg count";
-            this.avgQCount.Name = "avgQCount";
-            this.avgQCount.ReadOnly = true;
             // 
             // label1
             // 

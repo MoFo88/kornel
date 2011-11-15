@@ -20,6 +20,8 @@ namespace Kolejki.F
             return job;
         }
 
+      
+
         public static void Kill(this List<Job> jobList, List<Job> killedJobs, Job job)
         {
             killedJobs.Add(job);
