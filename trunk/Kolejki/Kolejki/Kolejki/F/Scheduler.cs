@@ -32,7 +32,6 @@ namespace Kolejki.F
             UniformDistr uniformDistr = new UniformDistr(0, 100);
             double nextRandom = uniformDistr.NextValue();
  
-            //TODO: mak as variable
             if ( nextRandom <= prob ) return true;
             return false;
         }
@@ -52,7 +51,7 @@ namespace Kolejki.F
         {
             if (CheckIfGenerateJob(Const.JOB_NORMAL_GENERATE_PROBABILITY))
             {
-                Job job = jobList.Create(new NormalDistr(Const.NORMAL_MU, Const.NORLAN_SIGMA) , socketList, this.timestamp, this);
+                Job job = jobList.Create( new NormalDistr(Const.NORMAL_MU, Const.NORLAN_SIGMA), socketList, this.timestamp, this);
 
                 //
                 //tell
@@ -203,7 +202,7 @@ namespace Kolejki.F
 
                 
                 //
-                //spróbój doda zadanie do kolejki
+                //spróbój dodac zadanie do kolejki
 
                 //pobierz socket maszyny
                 Socket socket = socketList.SingleOrDefault( x => x.deviceList.Contains(device));
@@ -277,7 +276,7 @@ namespace Kolejki.F
                 //sprawdz, czy na poprzednich soketach nie ma maszyn z czekającymi zadaniami
 
                 List<Socket> prevSocketList = socket.prevSockets;
-                Device prevBusyDev = prevSocketList.GetFirstBusyDevice();
+                Device prevBusyDev = prevSocketList.GetBusyDevice();
                 
 
                 //

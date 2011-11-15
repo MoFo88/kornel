@@ -72,11 +72,11 @@ namespace Kolejki
 
             if (dev.IsWorking)
             {
-                dgv.BackgroundColor = Color.DarkGreen;
+                dgv.BackgroundColor = Color.Lime;
             }
             else if (dev.IsBusy)
             {
-                dgv.BackgroundColor = Color.GreenYellow;
+                dgv.BackgroundColor = Color.DarkGreen;
             }
             else
             {

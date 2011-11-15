@@ -57,15 +57,17 @@ namespace Kolejki
                 socket.X = X;
                 socket.Y = Y;
 
-                scheduler.socketList.Add(socket);
-
                 //
                 //add devices
                 for (int i = 1; i <= DevNr; i++)
                 {
                     Device dev = new Device();
                     socket.AddDevice(dev);
+ 
                 }
+
+
+                scheduler.socketList.Add(socket);
 
                 //
                 InitializeCbTo();
@@ -146,13 +148,15 @@ namespace Kolejki
             InitializeCbFrom();
             InitializeCbTo();
 
+            scheduler.form.Show();
+
         }
 
         private void buttonmakeConnection_Click(object sender, EventArgs e)
         {
             try
             {
-                ResetScheduler();
+                //ResetScheduler();
 
                 Socket soc1 = (Socket)comboBoxFrom.SelectedItem;
                 Socket soc2 = (Socket)comboBoxTo.SelectedItem;
@@ -262,16 +266,22 @@ namespace Kolejki
             }
         }
 
+        public void UpadteParameters()
+        {
+            Const.UNIFORM_MIN = Int32.Parse(textBoxUnifMin.Text);
+            Const.UNIFORM_MAX = Int32.Parse(textBoxUnifMax.Text);
+            Const.NORMAL_MU = Int32.Parse(textBoxNormStd.Text);
+            Const.NORLAN_SIGMA = Int32.Parse(textBoxNormMean.Text);
+            Const.JOB_NORMAL_GENERATE_PROBABILITY = Int32.Parse(textBoxNormGenProb.Text);
+            Const.JOB_UNIFORM_GENERATE_PROBABILITY = Int32.Parse(textBoxUnifGenProb.Text);
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                Const.UNIFORM_MIN = Int32.Parse(textBoxUnifMin.Text);
-                Const.UNIFORM_MAX = Int32.Parse(textBoxUnifMax.Text);
-                Const.NORMAL_MU = Int32.Parse(textBoxNormStd.Text);
-                Const.NORLAN_SIGMA = Int32.Parse(textBoxNormMean.Text);
-                Const.JOB_NORMAL_GENERATE_PROBABILITY = Int32.Parse(textBoxNormGenProb.Text);
-                Const.JOB_UNIFORM_GENERATE_PROBABILITY = Int32.Parse(textBoxUnifGenProb.Text);
+                UpadteParameters();
 
                 ResetScheduler();
                 scheduler.form = new Form1(scheduler);
@@ -315,6 +325,11 @@ namespace Kolejki
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            UpadteParameters();
         }
 
 
