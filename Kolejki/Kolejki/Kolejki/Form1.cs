@@ -35,13 +35,7 @@ namespace Kolejki
             dgv.ClearSelection();
         }
 
-        public void InitializeDgvJobs()
-        {
-            dgvJobs.Rows.Clear();
-            List<Job> l = scheduler.jobList;
-            
-            InitializeDgv(dgvJobs, l);
-        }
+
 
         public void InitializeDgvQueue(int nr)
         {
@@ -94,7 +88,6 @@ namespace Kolejki
 
             InitializeDevicesStatistics();
             InitializeQueuesStatistics();
-            InitializeDgvJobs();
 
             for (int i = 0; i < socketControlList.Count; i++)
             {

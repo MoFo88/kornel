@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
-            this.dgvJobs = new System.Windows.Forms.DataGridView();
-            this.Job = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dgvStatsDevice = new System.Windows.Forms.DataGridView();
             this.devId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +53,6 @@
             this.labelJobsCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelKilledJobsCount = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).BeginInit();
             this.SuspendLayout();
@@ -79,32 +76,6 @@
             this.richTextBox.Size = new System.Drawing.Size(389, 148);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
-            // 
-            // dgvJobs
-            // 
-            this.dgvJobs.AllowUserToAddRows = false;
-            this.dgvJobs.AllowUserToDeleteRows = false;
-            this.dgvJobs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvJobs.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvJobs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvJobs.ColumnHeadersVisible = false;
-            this.dgvJobs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Job});
-            this.dgvJobs.Location = new System.Drawing.Point(12, 195);
-            this.dgvJobs.MultiSelect = false;
-            this.dgvJobs.Name = "dgvJobs";
-            this.dgvJobs.ReadOnly = true;
-            this.dgvJobs.RowHeadersVisible = false;
-            this.dgvJobs.ShowEditingIcon = false;
-            this.dgvJobs.Size = new System.Drawing.Size(75, 375);
-            this.dgvJobs.TabIndex = 3;
-            // 
-            // Job
-            // 
-            this.Job.HeaderText = "Job";
-            this.Job.Name = "Job";
-            this.Job.ReadOnly = true;
             // 
             // timer1
             // 
@@ -218,9 +189,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSockets.AutoScroll = true;
             this.panelSockets.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelSockets.Location = new System.Drawing.Point(97, 195);
+            this.panelSockets.Location = new System.Drawing.Point(12, 195);
             this.panelSockets.Name = "panelSockets";
-            this.panelSockets.Size = new System.Drawing.Size(919, 375);
+            this.panelSockets.Size = new System.Drawing.Size(1004, 375);
             this.panelSockets.TabIndex = 24;
             // 
             // button2
@@ -308,14 +279,12 @@
             this.Controls.Add(this.panelSockets);
             this.Controls.Add(this.dgvStatsQueue);
             this.Controls.Add(this.dgvStatsDevice);
-            this.Controls.Add(this.dgvJobs);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).EndInit();
             this.ResumeLayout(false);
@@ -327,8 +296,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox;
-        private System.Windows.Forms.DataGridView dgvJobs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Job;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dgvStatsDevice;
         private System.Windows.Forms.DataGridView dgvStatsQueue;

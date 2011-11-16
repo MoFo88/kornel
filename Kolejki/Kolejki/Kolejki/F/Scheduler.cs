@@ -302,7 +302,6 @@ namespace Kolejki.F
             {
                 throw new ApplicationException(" Can't handle event  ");
             }
-
         }
 
         internal void AddEvent(JobGenerationEvent e)
@@ -468,7 +467,7 @@ namespace Kolejki.F
         //queues statistics
         public double avgQueueTime(IQueue queue)
         {
-            int avg = 0;
+            double avg = 0;
             int count = 0;
 
             foreach (Job job in jobList)
