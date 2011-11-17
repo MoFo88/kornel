@@ -255,5 +255,17 @@ namespace Kolejki
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                timer1.Interval = Int32.Parse(textBoxTimeInterval.Text);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
     }
 }
