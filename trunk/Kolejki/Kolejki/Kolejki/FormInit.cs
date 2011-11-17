@@ -274,7 +274,7 @@ namespace Kolejki
             Const.NORLAN_SIGMA = Int32.Parse(textBoxNormMean.Text);
             Const.JOB_NORMAL_GENERATE_PROBABILITY = Int32.Parse(textBoxNormGenProb.Text);
             Const.JOB_UNIFORM_GENERATE_PROBABILITY = Int32.Parse(textBoxUnifGenProb.Text);
-            Const.TIME_INTERVAL = Int32.Parse(textBoxTimeInterval.Text);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
