@@ -21,6 +21,8 @@ namespace Kolejki.F
         public int Stop { get; set; }
         public IDistribution Distribution { get; set; }
 
+        public int TimeInSystem { get { return Stop - Start; } }
+
         public Color color;
 
         public override string ToString()
@@ -69,6 +71,7 @@ namespace Kolejki.F
             }
 
             Start = time;
+            Stop = -1;  
         }
 
         public MachineTime GetMachineTimeForDevice(Device device)

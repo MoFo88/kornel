@@ -85,6 +85,8 @@ namespace Kolejki
         {
             labelJobsCount.Text = scheduler.jobList.Count().ToString();
             labelKilledJobsCount.Text = scheduler.killedJobsList.Count().ToString();
+            labelMaxTimeInSystem.Text = scheduler.MaxTimeInSystem().ToString();
+            labelAvgTimeInSystem.Text = scheduler.AvgTimeInSystem().ToString();
 
             InitializeDevicesStatistics();
             InitializeQueuesStatistics();
@@ -247,6 +249,11 @@ namespace Kolejki
             }
 
             
+        }
+
+        private void panelSockets_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

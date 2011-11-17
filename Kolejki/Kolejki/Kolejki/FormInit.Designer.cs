@@ -66,6 +66,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBoxTimeInterval = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -323,7 +325,7 @@
             this.textBoxUnifMax.Name = "textBoxUnifMax";
             this.textBoxUnifMax.Size = new System.Drawing.Size(132, 20);
             this.textBoxUnifMax.TabIndex = 27;
-            this.textBoxUnifMax.Text = "15";
+            this.textBoxUnifMax.Text = "7";
             // 
             // label12
             // 
@@ -399,11 +401,30 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // textBoxTimeInterval
+            // 
+            this.textBoxTimeInterval.Location = new System.Drawing.Point(507, 282);
+            this.textBoxTimeInterval.Name = "textBoxTimeInterval";
+            this.textBoxTimeInterval.Size = new System.Drawing.Size(132, 20);
+            this.textBoxTimeInterval.TabIndex = 36;
+            this.textBoxTimeInterval.Text = "1000";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(395, 285);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 13);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Time interval:";
+            // 
             // FormInit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 448);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.textBoxTimeInterval);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label17);
@@ -490,5 +511,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBoxTimeInterval;
+        private System.Windows.Forms.Label label18;
     }
 }
