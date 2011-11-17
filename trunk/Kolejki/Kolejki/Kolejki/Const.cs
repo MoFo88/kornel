@@ -9,7 +9,7 @@ namespace Kolejki
     {
         //math
         public static int UNIFORM_MIN = 1;
-        public static int UNIFORM_MAX = 100;
+        public static int UNIFORM_MAX = 7;
 
         public static double NORMAL_MU = 7;
         public static double NORLAN_SIGMA = 15;
@@ -18,6 +18,8 @@ namespace Kolejki
         public static int JOB_UNIFORM_GENERATE_PROBABILITY = 25;
 
         //view
+        public static int TIME_INTERVAL = 1000;
+
         public static int ROW_HEIGHT = 30;
         public static int ROW_WIDTH = 80;
 

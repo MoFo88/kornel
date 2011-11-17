@@ -586,6 +586,27 @@ namespace Kolejki.F
 
         }
 
+        //
+        //job statistics
+        public int MaxTimeInSystem()
+        {
+            List<Job> x = jobList.Where(j => j.Start >= 0 && j.Stop >= 0).ToList();
+            
+            if (x.Count <= 0) return 0;
+ 
+            return    x.Max(j => j.TimeInSystem); 
+                
+        }
+
+        public double AvgTimeInSystem()
+        {
+            List<Job> x = jobList.Where(j => j.Start >= 0 && j.Stop >= 0).ToList();
+
+            if (x.Count <= 0) return 0;
+
+            return x.Average(j => j.TimeInSystem); 
+        }
+
         #endregion statistics
 
     }
