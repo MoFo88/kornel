@@ -61,7 +61,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(55, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Step";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,11 +69,9 @@
             // 
             // richTextBox
             // 
-            this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox.Location = new System.Drawing.Point(12, 41);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(389, 148);
+            this.richTextBox.Size = new System.Drawing.Size(269, 148);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
@@ -84,7 +82,6 @@
             // 
             // dgvStatsDevice
             // 
-            this.dgvStatsDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStatsDevice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStatsDevice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvStatsDevice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -94,7 +91,7 @@
             this.allB,
             this.avgW,
             this.avgB});
-            this.dgvStatsDevice.Location = new System.Drawing.Point(416, 41);
+            this.dgvStatsDevice.Location = new System.Drawing.Point(12, 195);
             this.dgvStatsDevice.Name = "dgvStatsDevice";
             this.dgvStatsDevice.RowHeadersVisible = false;
             this.dgvStatsDevice.Size = new System.Drawing.Size(269, 148);
@@ -133,7 +130,6 @@
             // 
             // dgvStatsQueue
             // 
-            this.dgvStatsQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStatsQueue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStatsQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStatsQueue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -143,10 +139,10 @@
             this.maxT,
             this.maxCount,
             this.avgQCount});
-            this.dgvStatsQueue.Location = new System.Drawing.Point(691, 41);
+            this.dgvStatsQueue.Location = new System.Drawing.Point(12, 349);
             this.dgvStatsQueue.Name = "dgvStatsQueue";
             this.dgvStatsQueue.RowHeadersVisible = false;
-            this.dgvStatsQueue.Size = new System.Drawing.Size(325, 148);
+            this.dgvStatsQueue.Size = new System.Drawing.Size(269, 148);
             this.dgvStatsQueue.TabIndex = 23;
             // 
             // QuId
@@ -184,21 +180,21 @@
             // 
             // panelSockets
             // 
-            this.panelSockets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSockets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSockets.AutoScroll = true;
             this.panelSockets.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelSockets.Location = new System.Drawing.Point(12, 195);
+            this.panelSockets.Location = new System.Drawing.Point(287, 12);
             this.panelSockets.Name = "panelSockets";
-            this.panelSockets.Size = new System.Drawing.Size(1004, 375);
+            this.panelSockets.Size = new System.Drawing.Size(729, 518);
             this.panelSockets.TabIndex = 24;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(93, 12);
+            this.button2.Location = new System.Drawing.Point(73, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(58, 23);
             this.button2.TabIndex = 25;
             this.button2.Text = "Event";
             this.button2.UseVisualStyleBackColor = true;
@@ -206,9 +202,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(174, 12);
+            this.button3.Location = new System.Drawing.Point(137, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(63, 23);
             this.button3.TabIndex = 26;
             this.button3.Text = "Star timer";
             this.button3.UseVisualStyleBackColor = true;
@@ -216,9 +212,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(255, 12);
+            this.button4.Location = new System.Drawing.Point(206, 12);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(64, 23);
             this.button4.TabIndex = 27;
             this.button4.Text = "Stop timer";
             this.button4.UseVisualStyleBackColor = true;
@@ -226,9 +222,8 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(688, 17);
+            this.label1.Location = new System.Drawing.Point(12, 514);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 28;
@@ -236,9 +231,8 @@
             // 
             // labelJobsCount
             // 
-            this.labelJobsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelJobsCount.AutoSize = true;
-            this.labelJobsCount.Location = new System.Drawing.Point(750, 17);
+            this.labelJobsCount.Location = new System.Drawing.Point(74, 514);
             this.labelJobsCount.Name = "labelJobsCount";
             this.labelJobsCount.Size = new System.Drawing.Size(35, 13);
             this.labelJobsCount.TabIndex = 29;
@@ -246,9 +240,8 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(807, 17);
+            this.label3.Location = new System.Drawing.Point(131, 514);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 30;
@@ -256,9 +249,8 @@
             // 
             // labelKilledJobsCount
             // 
-            this.labelKilledJobsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelKilledJobsCount.AutoSize = true;
-            this.labelKilledJobsCount.Location = new System.Drawing.Point(900, 17);
+            this.labelKilledJobsCount.Location = new System.Drawing.Point(224, 514);
             this.labelKilledJobsCount.Name = "labelKilledJobsCount";
             this.labelKilledJobsCount.Size = new System.Drawing.Size(35, 13);
             this.labelKilledJobsCount.TabIndex = 31;
@@ -268,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 582);
+            this.ClientSize = new System.Drawing.Size(1028, 542);
             this.Controls.Add(this.labelKilledJobsCount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelJobsCount);
