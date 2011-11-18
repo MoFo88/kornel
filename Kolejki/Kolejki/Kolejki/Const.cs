@@ -21,10 +21,10 @@ namespace Kolejki
         public static int TIME_INTERVAL = 1000;
 
         public static int ROW_HEIGHT = 30;
-        public static int ROW_WIDTH = 80;
+        public static int ROW_WIDTH = 70;
 
         public static int CONTROL_SOCKET_HEIGHT = 200;
-        public static int CONTROL_SOCKET_WIDTH = 170;
+        public static int CONTROL_SOCKET_WIDTH = 150;
         
     }
 }

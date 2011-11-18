@@ -179,7 +179,7 @@ namespace Kolejki
                 ResetScheduler();
                 
 
-                QueueFifo q = new QueueFifo(this.scheduler, 3);
+                QueueFifo q = new QueueFifo(this.scheduler, 5);
                 Socket s1 = new Socket(q, this.scheduler, true);
                 Device d1 = new Device();
                 Device d2 = new Device();
@@ -206,7 +206,7 @@ namespace Kolejki
                 s2.AddDevice(ddd3);
                 s2.AddDevice(ddd4);
 
-                s2.X = 220;
+                s2.X = 190;
                 s2.Y = 10;
 
                 QueueLifo q3 = new QueueLifo(this.scheduler, 7);
@@ -216,32 +216,35 @@ namespace Kolejki
                 s3.AddDevice(d4);
                 s3.AddDevice(d5);
 
-                s3.X = 230;
-                s3.Y = 350;
+                s3.X = 190;
+                s3.Y = 280;
 
-                QueueLifo q4 = new QueueLifo(this.scheduler, 10);
+                QueueLifo q4 = new QueueLifo(this.scheduler, 4);
                 Socket s4 = new Socket(q4, this.scheduler);
                 Device d6 = new Device();
                 Device d7 = new Device();
+                
                 s4.AddDevice(d6);
                 s4.AddDevice(d7);
 
-                s4.X = 450;
-                s4.Y = 50;
+                s4.X = 380;
+                s4.Y = 10;
 
                 QueueLifo q5 = new QueueLifo(this.scheduler, 10);
                 Socket s5 = new Socket(q5, this.scheduler);
                 Device d8 = new Device();
                 Device d9 = new Device();
-                
+                Device d10 = new Device();
+                Device d11 = new Device();
 
                 s5.AddDevice(d8);
                 s5.AddDevice(d9);
-
+                s5.AddDevice(d10);
+                s5.AddDevice(d11);
    
 
-                s5.X = 750;
-                s5.Y = 100;
+                s5.X = 570;
+                s5.Y = 120;
 
                 Socket.MakeConnection(s1, s2);
                 Socket.MakeConnection(s1, s3);
