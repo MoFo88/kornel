@@ -16,8 +16,7 @@ namespace Kolejki
     {
         List<SocketControl> socketControlList;
         Scheduler scheduler;
-
-
+        
         private void InitializeDgv(DataGridView dgv, List<Job> jobList)
         {
             foreach (var x in jobList)
@@ -83,12 +82,15 @@ namespace Kolejki
 
         public void Refresh()
         {
-            labelJobsCount.Text = scheduler.jobList.Count().ToString();
+            
+            int jobCount = scheduler.jobList.Count();
+
+            labelJobsCount.Text = jobCount.ToString();
             labelKilledJobsCount.Text = scheduler.killedJobsList.Count().ToString();
             labelMaxTimeInSystem.Text = scheduler.MaxTimeInSystem().ToString();
             labelAvgTimeInSystem.Text = scheduler.AvgTimeInSystem().ToString();
 
-            InitializeDevicesStatistics();
+              InitializeDevicesStatistics();
             InitializeQueuesStatistics();
 
             for (int i = 0; i < socketControlList.Count; i++)
@@ -181,7 +183,15 @@ namespace Kolejki
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            OnLoad();
+            try
+            {
+                OnLoad();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
