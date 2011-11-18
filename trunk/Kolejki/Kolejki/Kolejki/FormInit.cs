@@ -335,6 +335,5 @@ namespace Kolejki
             UpadteParameters();
         }
 
-
     }
 }
