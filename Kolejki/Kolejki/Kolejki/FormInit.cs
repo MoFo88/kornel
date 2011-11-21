@@ -178,7 +178,6 @@ namespace Kolejki
             {
                 ResetScheduler();
                 
-
                 QueueFifo q = new QueueFifo(this.scheduler, 5);
                 Socket s1 = new Socket(q, this.scheduler, true);
                 Device d1 = new Device();
@@ -209,13 +208,10 @@ namespace Kolejki
                 s2.X = 190;
                 s2.Y = 10;
 
-
                 Socket.MakeConnection(s1, s2);
-
 
                 this.scheduler.socketList.Add(s1);
                 this.scheduler.socketList.Add(s2);
-
 
                 InitializeCbTo();
                 InitializeCbFrom();
