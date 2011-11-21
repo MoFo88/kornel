@@ -81,6 +81,11 @@ namespace Kolejki.F
             {
                 xy[ws].X = 1;
             }
+
+            internal void ResetY(int ws)
+            {
+                xy[ws].Y = 2;
+            }
         }
     }
 
