@@ -89,7 +89,7 @@ namespace Kolejki
             InitializeDevicesStatistics();
             InitializeQueuesStatistics();
             InitializeGlobalStatistics();
-
+             
             for (int i = 0; i < socketControlList.Count; i++)
             {
                 SocketControl socCtrl = socketControlList[i];
@@ -105,9 +105,9 @@ namespace Kolejki
             //excel
             if (excel1 != null)
             {
-                RefreshExcel1();
-                RefreshExcel2();
-                RefreshExcel3();
+                RefreshExcelGlobalStatistics();
+                RefreshExcelDeviceStatistics();
+                RefreshExcelQueueStatistics();
             }
         }
 
@@ -116,12 +116,21 @@ namespace Kolejki
             //excel initialize
             List<object> str = new List<object>();
 
-            str.Add("Czas");
-            str.Add("Liczba przetworzonych zadań");
-            str.Add("Liczba zabitych zadań");
-            str.Add("Max czas w systemie");
-            str.Add("Sresni czas w systemie");
-            str.Add("Sredni czas w pracy");
+            str.Add("czas");
+            str.Add("liczba zadan");
+            str.Add("liczba zabitych zadań");
+            str.Add("max czas w systemie");
+            str.Add("min czas w systemie");
+            str.Add("średni czas w systemie");
+            str.Add("odch. st. czasu w systemie");
+            str.Add("max czas pracy zadania");
+            str.Add("min czas pracy zadania");
+            str.Add("średni czas pracy zadania");
+            str.Add("odch. st. czasu pracy zadania");
+            str.Add("max czas bezczynnosci");
+            str.Add("min czas bezczynnosci");
+            str.Add("średni czas bezczynnosci");
+            str.Add("odch. st. czasu bezczynnosci");
 
             excel1.WriteRow(0, str);
 
@@ -143,26 +152,7 @@ namespace Kolejki
             }
 
             excel1.WriteRow(1, str);
-
-            str = new List<object>();
-
-            str.Add("liczba zadan");
-            str.Add("liczba zabitych zadań");
-            str.Add("max czas w systemie");
-            str.Add("min czas w systemie");
-            str.Add("średni czas w systemie");
-            str.Add("odch. st. czasu w systemie");
-            str.Add("max czas pracy zadania");
-            str.Add("min czas pracy zadania");
-            str.Add("średni czas pracy zadania");
-            str.Add("odch. st. czasu pracy zadania");
-            str.Add("max czas bezczynnosci");
-            str.Add("min czas bezczynnosci");
-            str.Add("średni czas bezczynnosci");
-            str.Add("odch. st. czasu bezczynnosci");
-
-            excel1.WriteRow(2, str);
-
+           
             str = new List<object>();
 
             foreach (Socket soc in scheduler.socketList)
@@ -179,28 +169,50 @@ namespace Kolejki
                 str.Add("StdVar czas pracy");
             }
 
-            excel1.WriteRow(3, str);
-        }
-        
+            excel1.WriteRow(2, str);
 
-        private void RefreshExcel1()
+
+            str = new List<object>();
+
+            str.Add("czas");
+            //TU PAPI
+
+            excel1.WriteRow(3, str);
+
+        }        
+
+        private void RefreshExcelGlobalStatistics()
         {
+
+
             //
             //excel
             var str = new List<object>();
 
             str.Add(scheduler.timestamp);
-            str.Add( scheduler.jobList.Count());
+            str.Add(scheduler.jobList.Count());
             str.Add(scheduler.killedJobsList.Count());
             str.Add(scheduler.MaxTimeInSystem());
+            str.Add(scheduler.MinTimeInSystem());
             str.Add(scheduler.AvgTimeInSystem());
+            str.Add(scheduler.StdVarWorkTime());
+            str.Add(scheduler.MaxWorkTime());
+            str.Add(scheduler.MinWorkTime());
             str.Add(scheduler.AvgWorkingTime());
+            str.Add(scheduler.StdVarWorkTime());
+            str.Add(scheduler.MaxWastedTime());
+            str.Add(scheduler.MinWastedTime());
+            str.Add(scheduler.AvgWastedTime());
+            str.Add(scheduler.StdVarWastedTime());
+            str.Add("");
 
             excel1.WriteRow(0, str);
         }
 
-        private void RefreshExcel2()
+        private void RefreshExcelDeviceStatistics()
         {
+            //device statistics
+
             //
             //excel
             var str = new List<object>();
@@ -226,8 +238,9 @@ namespace Kolejki
             excel1.WriteRow(1, str);
         }
 
-        private void RefreshExcel3()
+        private void RefreshExcelQueueStatistics()
         {
+
             //
             //excel
             var str = new List<object>();
@@ -249,26 +262,23 @@ namespace Kolejki
             excel1.WriteRow(2, str);
         }
 
-        public void AddToExcel4(Job job)
+        public void AddToExcelJobStatistic(Job job)
         {
+
             //
             //excel
             var str = new List<object>();
 
-            str.Add( scheduler.jobList.Count());
-            str.Add( scheduler.killedJobsList.Count());
-            str.Add( scheduler.MaxTimeInSystem());
-            str.Add( scheduler.MinTimeInSystem());
-            str.Add( scheduler.AvgTimeInSystem());
-            str.Add( scheduler.StdVarWorkTime());
-            str.Add( scheduler.MaxWorkTime());
-            str.Add( scheduler.MinWorkTime());
-            str.Add( scheduler.AvgWorkingTime());
-            str.Add( scheduler.StdVarWorkTime());
-            str.Add( scheduler.MaxWastedTime());
-            str.Add( scheduler.MinWastedTime());
-            str.Add( scheduler.AvgWastedTime());
-            str.Add( scheduler.StdVarWastedTime()); 
+            str.Add(scheduler.timestamp);
+            str.Add(job.Id);
+            str.Add(job.Name);
+            str.Add(job.TimeInSystem);
+            str.Add(job.WorkedTime());
+            str.Add(job.WastedTime());
+            str.Add(job.MinWorkTime());
+            str.Add(job.MaxWorkTime());
+            str.Add(job.AvgWorkTime());
+            str.Add(job.StdVarWorkTime());
             str.Add("");
 
             excel1.WriteRow(3, str);

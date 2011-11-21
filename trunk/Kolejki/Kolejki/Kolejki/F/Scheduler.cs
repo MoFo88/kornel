@@ -37,7 +37,6 @@ namespace Kolejki.F
             return false;
         }
 
-
         public Scheduler()
         {
             socketList = new List<Socket>();
@@ -220,7 +219,7 @@ namespace Kolejki.F
 
                     //
                     //to excel
-                    form.AddToExcel4(((DeviceFinishedEvent)myEvent).job);
+                    form.AddToExcelJobStatistic(((DeviceFinishedEvent)myEvent).job);
 
 
                     //
