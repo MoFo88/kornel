@@ -146,16 +146,20 @@ namespace Kolejki
 
             str = new List<object>();
 
-            foreach (Socket soc in scheduler.socketList)
-            {
-                str.Add("Id.");
-                str.Add("Średni czas");
-                str.Add("Łączny czas");
-                str.Add("max czas");
-                str.Add("max liczba zadan");
-                str.Add("śr liczba zadan");
-                str.Add("");
-            }
+            str.Add("liczba zadan");
+            str.Add("liczba zabitych zadań");
+            str.Add("max czas w systemie");
+            str.Add("min czas w systemie");
+            str.Add("średni czas w systemie");
+            str.Add("odch. st. czasu w systemie");
+            str.Add("max czas pracy zadania");
+            str.Add("min czas pracy zadania");
+            str.Add("średni czas pracy zadania");
+            str.Add("odch. st. czasu pracy zadania");
+            str.Add("max czas bezczynnosci");
+            str.Add("min czas bezczynnosci");
+            str.Add("średni czas bezczynnosci");
+            str.Add("odch. st. czasu bezczynnosci");
 
             excel1.WriteRow(2, str);
 
@@ -251,27 +255,20 @@ namespace Kolejki
             //excel
             var str = new List<object>();
 
-            int x1 = job.Id;
-            String x2 = job.Name;
-            int x3 = job.Start;
-            int x4 = job.Stop;
-            int x5 = job.TimeInSystem;
-            int x6 = job.WorkedTime();
-            double x7 = job.AvgWorkTime();
-            double x8 = job.MinWorkTime();
-            double x9 = job.MaxWorkTime();
-            double x10 = job.StdVarWorkTime();
-
-            str.Add(x1);
-            str.Add(x2);
-            str.Add(x3);
-            str.Add(x4);
-            str.Add(x5);
-            str.Add(x6);
-            str.Add(x7);
-            str.Add(x8);
-            str.Add(x9);
-            str.Add(x10);
+            str.Add( scheduler.jobList.Count());
+            str.Add( scheduler.killedJobsList.Count());
+            str.Add( scheduler.MaxTimeInSystem());
+            str.Add( scheduler.MinTimeInSystem());
+            str.Add( scheduler.AvgTimeInSystem());
+            str.Add( scheduler.StdVarWorkTime());
+            str.Add( scheduler.MaxWorkTime());
+            str.Add( scheduler.MinWorkTime());
+            str.Add( scheduler.AvgWorkingTime());
+            str.Add( scheduler.StdVarWorkTime());
+            str.Add( scheduler.MaxWastedTime());
+            str.Add( scheduler.MinWastedTime());
+            str.Add( scheduler.AvgWastedTime());
+            str.Add( scheduler.StdVarWastedTime()); 
             str.Add("");
 
             excel1.WriteRow(3, str);
