@@ -29,6 +29,7 @@ namespace Kolejki.F
                     IsWorking = true; 
                     jobStart = socket.scheduler.timestamp;
                     currentJob.GetMachineTimeForDevice(this).start = socket.scheduler.timestamp;
+                    currentJob.AddVisitedDevice(this);
                 }
             } 
         }
