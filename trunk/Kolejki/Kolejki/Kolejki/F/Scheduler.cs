@@ -17,6 +17,16 @@ namespace Kolejki.F
         public List<Event> eventList;
         public List<Job> killedJobsList;
 
+        public bool SystemEmpty 
+        { 
+            get
+            {
+
+                if (eventList.Count > 0) return false;
+                return true;
+            } 
+        }
+
         //
         //for stats
         public List<QueueSize> queueSize = new List<QueueSize>();
@@ -706,5 +716,7 @@ namespace Kolejki.F
 
         #endregion statistics
 
+
+        
     }
 }

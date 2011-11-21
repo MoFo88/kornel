@@ -82,25 +82,33 @@ namespace Kolejki
 
         public void Refresh()
         {
-            
-            int jobCount = scheduler.jobList.Count();
-
-
-            InitializeDevicesStatistics();
-            InitializeQueuesStatistics();
-            InitializeGlobalStatistics();
-             
-            for (int i = 0; i < socketControlList.Count; i++)
+            if (checkBoxRefresh.Checked)
             {
-                SocketControl socCtrl = socketControlList[i];
-                InitializeDgvQueue(i);
 
-                for (int j = 0; j < socCtrl.DeviceList.Count; j++)
+                int jobCount = scheduler.jobList.Count();
+
+
+                InitializeDevicesStatistics();
+                InitializeQueuesStatistics();
+                InitializeGlobalStatistics();
+
+                for (int i = 0; i < socketControlList.Count; i++)
                 {
-                    InitializeDgvDevice(i, j);
+                    SocketControl socCtrl = socketControlList[i];
+                    InitializeDgvQueue(i);
+
+                    for (int j = 0; j < socCtrl.DeviceList.Count; j++)
+                    {
+                        InitializeDgvDevice(i, j);
+                    }
                 }
             }
 
+            WriteExcel();
+        }
+
+        public void WriteExcel()
+        {
             //
             //excel
             if (excel1 != null)
@@ -157,16 +165,15 @@ namespace Kolejki
 
             foreach (Socket soc in scheduler.socketList)
             {
-                str.Add("Id.");
-                str.Add("Nazwa");
-                str.Add("Start");
-                str.Add("Stop");
-                str.Add("Czas w systemie");
-                str.Add("Laczny czas pracy");
-                str.Add("Sredni czas pracy");
-                str.Add("Min czas pracy");
-                str.Add("Max pracy");
-                str.Add("StdVar czas pracy");
+                str.Add("Czas");
+                str.Add("Nazwa kolejki");
+                str.Add("śr. czas");
+                str.Add("łączny czas");
+                str.Add("max czas");
+                str.Add("max liczba zadan");
+                str.Add("śr. liczba zadan");
+                str.Add("");
+                
             }
 
             excel1.WriteRow(2, str);
@@ -174,11 +181,18 @@ namespace Kolejki
 
             str = new List<object>();
 
-            str.Add("czas");
-            //TU PAPI
-
+            str.Add("Czas"); 
+            str.Add("Id"); 
+            str.Add("Typ rozkładu"); 
+            str.Add("Czas w systemie"); 
+            str.Add("Czas pracy");
+            str.Add("Czas bezczynności");
+            str.Add("Min. czas pracy"); 
+            str.Add("Maks. czas pracy"); 
+            str.Add("Śr. Czas pracy"); 
+            str.Add("Odchylenie std. czasu pracy");
+            str.Add("");
             excel1.WriteRow(3, str);
-
         }        
 
         private void RefreshExcelGlobalStatistics()
@@ -256,6 +270,7 @@ namespace Kolejki
                 str.Add(scheduler.sumQueueTime(s.queue));
                 str.Add(scheduler.maxQueueTime(s.queue));
                 str.Add(scheduler.maxQueueCount(s.queue));
+                str.Add(scheduler.avgQueueCount(s.queue));
                 str.Add("");
             }
 
@@ -271,7 +286,7 @@ namespace Kolejki
 
             str.Add(scheduler.timestamp);
             str.Add(job.Id);
-            str.Add(job.Name);
+            str.Add(job.Distribution.Name);
             str.Add(job.TimeInSystem);
             str.Add(job.WorkedTime());
             str.Add(job.WastedTime());
@@ -503,6 +518,69 @@ namespace Kolejki
             catch (Exception ex)
             {
                 
+            }
+        }
+
+        public void ResetScheduler()
+        {
+            scheduler.timestamp = 0;
+            scheduler.queueSize = new List<QueueSize>();
+            scheduler.killedJobsList = new List<Job>();
+            scheduler.jobList = new List<Job>();
+            scheduler.eventList = new List<Event>();
+
+            foreach (Socket s in scheduler.socketList)
+            {
+                s.queue.JobList = new List<Job>();
+                foreach (Device d in s.deviceList)
+                {
+                    d.CurrentJob = null;
+                }
+            }
+
+            for (int i = 0; i <= 3; i++)
+            {
+                excel1.ResetX(i);
+                excel1.ResetY(i);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ResetScheduler();
+
+                if (firstStep)
+                {
+                    InitilizeExcel();
+                    firstStep = false;
+                }
+
+                int steps = Int32.Parse(textBoxSteps.Text);
+
+                for (int i = 0; i < steps; i++)
+                {
+                    scheduler.MakeStep();
+                    Refresh();
+                }
+
+                //finished
+                Const.JOB_NORMAL_GENERATE_PROBABILITY = 0;
+                Const.JOB_UNIFORM_GENERATE_PROBABILITY = 0;
+
+                while (!scheduler.SystemEmpty)
+                {
+                    scheduler.MakeStep();
+                    Refresh();
+                }
+
+                MessageBox.Show("Symulation completed: " + scheduler.timestamp);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
