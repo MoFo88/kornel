@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Kolejki.MyMath;
 using System.Diagnostics;
+using Kolejki.F.MyMath;
 
 namespace Kolejki.F
 {
@@ -186,6 +187,7 @@ namespace Kolejki.F
             }
             else if (myEvent is DeviceFinishedEvent)
             {
+                
                 //
                 //tell
                 String tell ="event DeviceFinishedEvent:";
@@ -215,6 +217,11 @@ namespace Kolejki.F
                 {
                     job.Stop = this.timestamp;
                     device.RemoveJob(timestamp, socket);
+
+                    //
+                    //to excel
+                    form.AddToExcel4(((DeviceFinishedEvent)myEvent).job);
+
 
                     //
                     //tell
@@ -591,20 +598,111 @@ namespace Kolejki.F
         public int MaxTimeInSystem()
         {
             List<Job> x = jobList.Where(j => j.Start >= 0 && j.Stop >= 0).ToList();
-            
             if (x.Count <= 0) return 0;
- 
-            return    x.Max(j => j.TimeInSystem); 
-                
+            return    x.Max(j => j.TimeInSystem);     
+        }
+
+        public int MinTimeInSystem()
+        {
+            List<Job> x = jobList.Where(j => j.Start >= 0 && j.Stop >= 0).ToList();
+            if (x.Count <= 0) return 0;
+            return x.Min(j => j.TimeInSystem);   
         }
 
         public double AvgTimeInSystem()
         {
-            List<Job> x = jobList.Where(j => j.Start >= 0 && j.Stop >= 0).ToList();
-
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
             if (x.Count <= 0) return 0;
 
             return x.Average(j => j.TimeInSystem); 
+        }
+
+        public int MaxWorkTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 0) return 0;
+            return x.Max(j => j.WorkedTime());   
+        }
+
+        public int MinWorkTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 0) return 0;
+            return x.Min(j => j.WorkedTime());
+        }
+
+        public double AvgWorkingTime()
+        {
+            List<Job> x = jobList.Where(j => j.Start >= 0 && j.Stop >= 0).ToList();
+
+            int sum = 0;
+            int count = 0;
+
+            if (x.Count == 0) return 0;
+
+            foreach (Job j in x)
+            {
+                sum += j.WorkedTime();
+                count++;
+            }
+
+            return (double)sum / (double)count;
+        }
+
+        public double StdVarTimeInSystem()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 1) return 0;
+
+            return x.Select(j => (double)j.TimeInSystem).CalculateStdDev();
+        }
+
+        public double StdVarWorkTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 1) return 0;
+
+            return x.Select(j => (double)j.WorkedTime()).CalculateStdDev();
+        }
+
+        public int MaxWastedTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 0) return 0;
+            return x.Max(j => j.WastedTime());     
+        }
+
+        public int MinWastedTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 0) return 0;
+            return x.Min(j => j.WastedTime());
+        }
+
+        public double AvgWastedTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+
+            int sum = 0;
+            int count = 0;
+
+            if (x.Count == 0) return 0;
+
+            foreach (Job j in x)
+            {
+                sum += j.WastedTime();
+                count++;
+            }
+
+            return (double)sum / (double)count;
+        }
+
+        public double StdVarWastedTime()
+        {
+            List<Job> x = jobList.Where(j => j.IsFinished).ToList();
+            if (x.Count <= 1) return 0;
+
+            return x.Select(j => (double)j.WastedTime()).CalculateStdDev();
         }
 
         #endregion statistics

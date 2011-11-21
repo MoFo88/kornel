@@ -197,7 +197,7 @@ namespace Kolejki
                 s1.X = 10;
                 s1.Y = 30;
 
-                QueueLifo q2 = new QueueLifo(this.scheduler, 2);
+                QueueFifo q2 = new QueueFifo(this.scheduler, 10);
                 Socket s2 = new Socket(q2, this.scheduler);
                 Device d3 = new Device();
                 Device ddd3 = new Device();
@@ -209,54 +209,12 @@ namespace Kolejki
                 s2.X = 190;
                 s2.Y = 10;
 
-                QueueLifo q3 = new QueueLifo(this.scheduler, 7);
-                Socket s3 = new Socket(q3, this.scheduler);
-                Device d4 = new Device();
-                Device d5 = new Device();
-                s3.AddDevice(d4);
-                s3.AddDevice(d5);
-
-                s3.X = 190;
-                s3.Y = 280;
-
-                QueueLifo q4 = new QueueLifo(this.scheduler, 4);
-                Socket s4 = new Socket(q4, this.scheduler);
-                Device d6 = new Device();
-                Device d7 = new Device();
-                
-                s4.AddDevice(d6);
-                s4.AddDevice(d7);
-
-                s4.X = 380;
-                s4.Y = 10;
-
-                QueueLifo q5 = new QueueLifo(this.scheduler, 10);
-                Socket s5 = new Socket(q5, this.scheduler);
-                Device d8 = new Device();
-                Device d9 = new Device();
-                Device d10 = new Device();
-                Device d11 = new Device();
-
-                s5.AddDevice(d8);
-                s5.AddDevice(d9);
-                s5.AddDevice(d10);
-                s5.AddDevice(d11);
-   
-
-                s5.X = 570;
-                s5.Y = 120;
 
                 Socket.MakeConnection(s1, s2);
-                Socket.MakeConnection(s1, s3);
-                Socket.MakeConnection(s3, s5);
-                Socket.MakeConnection(s2, s4);
-                Socket.MakeConnection(s4, s5);
+
 
                 this.scheduler.socketList.Add(s1);
                 this.scheduler.socketList.Add(s2);
-                this.scheduler.socketList.Add(s3);
-                this.scheduler.socketList.Add(s4);
-                this.scheduler.socketList.Add(s5);
 
 
                 InitializeCbTo();
