@@ -33,6 +33,11 @@
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dgvStatsDevice = new System.Windows.Forms.DataGridView();
+            this.devId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avgW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avgB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStatsQueue = new System.Windows.Forms.DataGridView();
             this.QuId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AvgTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,11 +54,6 @@
             this.dgvStats = new System.Windows.Forms.DataGridView();
             this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wartość = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.devId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.avgW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.avgB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStats)).BeginInit();
@@ -71,11 +71,11 @@
             // 
             // richTextBox
             // 
-            this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox.Location = new System.Drawing.Point(287, 675);
+            this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox.Location = new System.Drawing.Point(287, 495);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(1085, 75);
+            this.richTextBox.Size = new System.Drawing.Size(729, 75);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
@@ -96,11 +96,42 @@
             this.allB,
             this.avgW,
             this.avgB});
-            this.dgvStatsDevice.Location = new System.Drawing.Point(8, 334);
+            this.dgvStatsDevice.Location = new System.Drawing.Point(8, 291);
             this.dgvStatsDevice.Name = "dgvStatsDevice";
             this.dgvStatsDevice.RowHeadersVisible = false;
-            this.dgvStatsDevice.Size = new System.Drawing.Size(273, 205);
+            this.dgvStatsDevice.Size = new System.Drawing.Size(273, 129);
             this.dgvStatsDevice.TabIndex = 22;
+            // 
+            // devId
+            // 
+            this.devId.HeaderText = "ID maszyny";
+            this.devId.MaxInputLength = 100;
+            this.devId.Name = "devId";
+            this.devId.ReadOnly = true;
+            // 
+            // allW
+            // 
+            this.allW.HeaderText = "Łączny czas pracy";
+            this.allW.MaxInputLength = 5;
+            this.allW.Name = "allW";
+            // 
+            // allB
+            // 
+            this.allB.HeaderText = "Łączny czas blok.";
+            this.allB.MaxInputLength = 5;
+            this.allB.Name = "allB";
+            // 
+            // avgW
+            // 
+            this.avgW.HeaderText = "Śr. czas pracy";
+            this.avgW.MaxInputLength = 5;
+            this.avgW.Name = "avgW";
+            // 
+            // avgB
+            // 
+            this.avgB.HeaderText = "Śr. czas blok.";
+            this.avgB.MaxInputLength = 5;
+            this.avgB.Name = "avgB";
             // 
             // dgvStatsQueue
             // 
@@ -114,10 +145,10 @@
             this.maxT,
             this.maxCount,
             this.avgQCount});
-            this.dgvStatsQueue.Location = new System.Drawing.Point(8, 545);
+            this.dgvStatsQueue.Location = new System.Drawing.Point(8, 426);
             this.dgvStatsQueue.Name = "dgvStatsQueue";
             this.dgvStatsQueue.RowHeadersVisible = false;
-            this.dgvStatsQueue.Size = new System.Drawing.Size(273, 205);
+            this.dgvStatsQueue.Size = new System.Drawing.Size(273, 144);
             this.dgvStatsQueue.TabIndex = 23;
             // 
             // QuId
@@ -155,14 +186,14 @@
             // 
             // panelSockets
             // 
-            this.panelSockets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSockets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSockets.AutoScroll = true;
             this.panelSockets.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelSockets.Location = new System.Drawing.Point(287, 12);
             this.panelSockets.Name = "panelSockets";
-            this.panelSockets.Size = new System.Drawing.Size(1085, 657);
+            this.panelSockets.Size = new System.Drawing.Size(729, 477);
             this.panelSockets.TabIndex = 24;
             this.panelSockets.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSockets_Paint);
             // 
@@ -216,8 +247,8 @@
             // 
             // dgvStats
             // 
-            this.dgvStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvStats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -226,7 +257,7 @@
             this.dgvStats.Location = new System.Drawing.Point(8, 78);
             this.dgvStats.Name = "dgvStats";
             this.dgvStats.RowHeadersVisible = false;
-            this.dgvStats.Size = new System.Drawing.Size(273, 250);
+            this.dgvStats.Size = new System.Drawing.Size(273, 207);
             this.dgvStats.TabIndex = 39;
             // 
             // Nazwa
@@ -241,42 +272,11 @@
             this.Wartość.Name = "Wartość";
             this.Wartość.ReadOnly = true;
             // 
-            // devId
-            // 
-            this.devId.HeaderText = "ID maszyny";
-            this.devId.MaxInputLength = 100;
-            this.devId.Name = "devId";
-            this.devId.ReadOnly = true;
-            // 
-            // allW
-            // 
-            this.allW.HeaderText = "Łączny czas pracy";
-            this.allW.MaxInputLength = 5;
-            this.allW.Name = "allW";
-            // 
-            // allB
-            // 
-            this.allB.HeaderText = "Łączny czas blok.";
-            this.allB.MaxInputLength = 5;
-            this.allB.Name = "allB";
-            // 
-            // avgW
-            // 
-            this.avgW.HeaderText = "Śr. czas pracy";
-            this.avgW.MaxInputLength = 5;
-            this.avgW.Name = "avgW";
-            // 
-            // avgB
-            // 
-            this.avgB.HeaderText = "Śr. czas blok.";
-            this.avgB.MaxInputLength = 5;
-            this.avgB.Name = "avgB";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.ClientSize = new System.Drawing.Size(1028, 582);
             this.Controls.Add(this.dgvStats);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.button5);
