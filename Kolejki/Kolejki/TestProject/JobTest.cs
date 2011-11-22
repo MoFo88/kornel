@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using Kolejki.MyMath;
+using MathNet.Numerics.Distributions;
 
 namespace TestProject
 {
@@ -35,7 +36,16 @@ namespace TestProject
             }
         }
 
+        [TestMethod()]
+        public void TestDistribution()
+        {
+            NormalDistribution distr = new NormalDistribution(10, 2);
+            Assert.AreEqual(10, distr.Mean);
+            Assert.AreEqual(10, distr.Median);
+            Assert.AreEqual(10, distr.Mu);
+            Assert.AreEqual(4, distr.Variance);
 
+        }
 
     }
 }

@@ -287,7 +287,7 @@
             this.textBoxNormGenProb.Name = "textBoxNormGenProb";
             this.textBoxNormGenProb.Size = new System.Drawing.Size(121, 20);
             this.textBoxNormGenProb.TabIndex = 22;
-            this.textBoxNormGenProb.Text = "15";
+            this.textBoxNormGenProb.Text = "55";
             // 
             // textBoxUnifGenProb
             // 
@@ -295,7 +295,7 @@
             this.textBoxUnifGenProb.Name = "textBoxUnifGenProb";
             this.textBoxUnifGenProb.Size = new System.Drawing.Size(121, 20);
             this.textBoxUnifGenProb.TabIndex = 23;
-            this.textBoxUnifGenProb.Text = "25";
+            this.textBoxUnifGenProb.Text = "50";
             // 
             // textBoxNormMean
             // 
@@ -303,7 +303,7 @@
             this.textBoxNormMean.Name = "textBoxNormMean";
             this.textBoxNormMean.Size = new System.Drawing.Size(132, 20);
             this.textBoxNormMean.TabIndex = 24;
-            this.textBoxNormMean.Text = "6";
+            this.textBoxNormMean.Text = "8";
             // 
             // textBoxNormStd
             // 
@@ -311,7 +311,7 @@
             this.textBoxNormStd.Name = "textBoxNormStd";
             this.textBoxNormStd.Size = new System.Drawing.Size(132, 20);
             this.textBoxNormStd.TabIndex = 25;
-            this.textBoxNormStd.Text = "10";
+            this.textBoxNormStd.Text = "5";
             // 
             // textBoxUnifMin
             // 
@@ -319,7 +319,7 @@
             this.textBoxUnifMin.Name = "textBoxUnifMin";
             this.textBoxUnifMin.Size = new System.Drawing.Size(132, 20);
             this.textBoxUnifMin.TabIndex = 26;
-            this.textBoxUnifMin.Text = "2";
+            this.textBoxUnifMin.Text = "6";
             // 
             // textBoxUnifMax
             // 
@@ -327,7 +327,7 @@
             this.textBoxUnifMax.Name = "textBoxUnifMax";
             this.textBoxUnifMax.Size = new System.Drawing.Size(132, 20);
             this.textBoxUnifMax.TabIndex = 27;
-            this.textBoxUnifMax.Text = "7";
+            this.textBoxUnifMax.Text = "10";
             // 
             // label12
             // 

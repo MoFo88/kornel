@@ -177,41 +177,87 @@ namespace Kolejki
             try
             {
                 ResetScheduler();
-                
-                QueueFifo q = new QueueFifo(this.scheduler, 5);
-                Socket s1 = new Socket(q, this.scheduler, true);
-                Device d1 = new Device();
-                Device d2 = new Device();
-                Device dd3 = new Device();
-                Device dd4 = new Device();
-                Device dd5 = new Device();
-                Device dd6 = new Device();
-                s1.AddDevice(d1);
-                s1.AddDevice(d2);
-                s1.AddDevice(dd3);
-                s1.AddDevice(dd4);
-                s1.AddDevice(dd5);
-                s1.AddDevice(dd6);
 
-                s1.X = 10;
-                s1.Y = 30;
+                QueueFifo q1 = new QueueFifo(this.scheduler, 5);
+                Socket s1 = new Socket(q1, this.scheduler, true);
 
-                QueueFifo q2 = new QueueFifo(this.scheduler, 10);
-                Socket s2 = new Socket(q2, this.scheduler);
-                Device d3 = new Device();
-                Device ddd3 = new Device();
-                Device ddd4 = new Device();
-                s2.AddDevice(d3);
-                s2.AddDevice(ddd3);
-                s2.AddDevice(ddd4);
+                Device d_1_1 = new Device();
+                Device d_1_2 = new Device();
+                Device d_1_3 = new Device();
+                Device d_1_4 = new Device();
 
-                s2.X = 190;
-                s2.Y = 10;
 
-                Socket.MakeConnection(s1, s2);
+                s1.AddDevice(d_1_1);
+                s1.AddDevice(d_1_2);
+                s1.AddDevice(d_1_3);
+                s1.AddDevice(d_1_4);
+
+
+                s1.X = 20;
+                s1.Y = 0;
+
+                QueueFifo q2 = new QueueFifo(this.scheduler, 5);
+                Socket s2 = new Socket(q2, this.scheduler, true);
+
+                Device d_2_1 = new Device();
+                Device d_2_2 = new Device();
+                Device d_2_3 = new Device();
+                Device d_2_4 = new Device();
+
+
+                s2.AddDevice(d_2_1);
+                s2.AddDevice(d_2_2);
+                s2.AddDevice(d_2_3);
+                s2.AddDevice(d_2_4);
+
+
+                s2.X = 20;
+                s2.Y = 280;
+
+                QueueFifo q3 = new QueueFifo(this.scheduler, 5);
+                Socket s3 = new Socket(q3, this.scheduler);
+                Device d_3_1 = new Device();
+                Device d_3_2 = new Device();
+                Device d_3_3 = new Device();
+                Device d_3_4 = new Device();
+
+
+                s3.AddDevice(d_3_1);
+                s3.AddDevice(d_3_2);
+                s3.AddDevice(d_3_3);
+                s3.AddDevice(d_3_4);
+
+
+                s3.X = 280;
+                s3.Y = 0;
+
+
+                QueueFifo q4 = new QueueFifo(this.scheduler, 5);
+                Socket s4 = new Socket(q4, this.scheduler);
+                Device d_4_1 = new Device();
+                Device d_4_2 = new Device();
+                Device d_4_3 = new Device();
+                Device d_4_4 = new Device();
+
+
+                s4.AddDevice(d_4_1);
+                s4.AddDevice(d_4_2);
+                s4.AddDevice(d_4_3);
+                s4.AddDevice(d_4_4);
+
+
+                s4.X = 280;
+                s4.Y = 280;
+
+                Socket.MakeConnection(s1, s3);
+                Socket.MakeConnection(s1, s4);
+                Socket.MakeConnection(s2, s3);
+                Socket.MakeConnection(s2, s4);
 
                 this.scheduler.socketList.Add(s1);
                 this.scheduler.socketList.Add(s2);
+                this.scheduler.socketList.Add(s3);
+                this.scheduler.socketList.Add(s4);
 
                 InitializeCbTo();
                 InitializeCbFrom();
@@ -227,8 +273,8 @@ namespace Kolejki
         {
             Const.UNIFORM_MIN = Int32.Parse(textBoxUnifMin.Text);
             Const.UNIFORM_MAX = Int32.Parse(textBoxUnifMax.Text);
-            Const.NORMAL_MU = Int32.Parse(textBoxNormStd.Text);
-            Const.NORLAN_SIGMA = Int32.Parse(textBoxNormMean.Text);
+            Const.NORMAL_MU = Int32.Parse(textBoxNormMean.Text);
+            Const.NORLAN_SIGMA =  Int32.Parse(textBoxNormStd.Text);
             Const.JOB_NORMAL_GENERATE_PROBABILITY = Int32.Parse(textBoxNormGenProb.Text);
             Const.JOB_UNIFORM_GENERATE_PROBABILITY = Int32.Parse(textBoxUnifGenProb.Text);
 

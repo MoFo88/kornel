@@ -8,17 +8,17 @@ namespace Kolejki.MyMath
 {
     class UniformDistr : IDistribution
     {
-        ContinuousUniformDistribution distr;
+        DiscreteUniformDistribution distr;
 
         public int NextValue()
         {
-            double val = distr.NextDouble();
-            return (int)Math.Ceiling(val);
+            int val = distr.NextInt32();
+            return val;
         }
 
-        public UniformDistr(double min, double max)
+        public UniformDistr(int min, int max)
         {
-            distr = new ContinuousUniformDistribution(min, max);
+            distr = new DiscreteUniformDistribution(min, max);
         }
 
         public string Name
