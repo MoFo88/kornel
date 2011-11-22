@@ -17,7 +17,7 @@ namespace Kolejki
     {
         List<SocketControl> socketControlList;
         Scheduler scheduler;
-        Excel excel1 = new Excel(4);  
+        Excel excel1;  
         
         private void InitializeDgv(DataGridView dgv, List<Job> jobList)
         {
@@ -193,6 +193,17 @@ namespace Kolejki
             str.Add("Odchylenie std. czasu pracy");
             str.Add("");
             excel1.WriteRow(3, str);
+
+            //
+            str = new List<object>();
+
+            excel1.WriteRow(4, new List<object> { "JOB_NORMAL_GENERATE_PROBABILITY", Const.JOB_NORMAL_GENERATE_PROBABILITY });
+            excel1.WriteRow(4, new List<object> { "JOB_UNIFORM_GENERATE_PROBABILITY", Const.JOB_UNIFORM_GENERATE_PROBABILITY });
+            excel1.WriteRow(4, new List<object> { "NORLAN_SIGMA", Const.NORLAN_SIGMA });
+            excel1.WriteRow(4, new List<object> { "NORMAL_MU", Const.NORMAL_MU });
+            excel1.WriteRow(4, new List<object> { "UNIFORM_MAX", Const.UNIFORM_MAX });
+            excel1.WriteRow(4, new List<object> { "UNIFORM_MIN", Const.UNIFORM_MIN });
+
         }        
 
         private void RefreshExcelGlobalStatistics()
@@ -407,6 +418,16 @@ namespace Kolejki
             try
             {
                 OnLoad();
+                Refresh();
+
+                try
+                {
+                    excel1 = new Excel(5);
+                }
+                catch (Exception exWew)
+                {
+                    //nie zainstalowany excel
+                }
             }
             catch (Exception ex)
             {
@@ -563,6 +584,9 @@ namespace Kolejki
                 {
                     scheduler.MakeStep();
                     Refresh();
+
+                    Application.DoEvents();
+                    System.Threading.Thread.Sleep(1);
                 }
 
                 //finished
@@ -575,7 +599,7 @@ namespace Kolejki
                     Refresh();
                 }
 
-                MessageBox.Show("Symulation completed: " + scheduler.timestamp);
+                MessageBox.Show("Symulacja ukończona: " + scheduler.timestamp);
 
             }
             catch (Exception ex)

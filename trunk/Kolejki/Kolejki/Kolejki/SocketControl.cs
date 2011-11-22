@@ -27,7 +27,7 @@ namespace Kolejki
             labebQueue = new Label();
             labebQueue.Text = "lblQueue";
             labebQueue.Location = new Point(2,1);
-            labebQueue.Width = Const.ROW_WIDTH;
+            labebQueue.Width = Const.ROW_WIDTH + 5;
 
             Queue = new DataGridView();
             DataGridViewCell cellQ = new DataGridViewTextBoxCell();

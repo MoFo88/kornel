@@ -57,9 +57,9 @@
             this.checkBoxRefresh = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxSteps = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.textBoxSteps = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStats)).BeginInit();
@@ -68,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(11, 76);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 23);
             this.button1.TabIndex = 1;
@@ -206,7 +206,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(56, 12);
+            this.button2.Location = new System.Drawing.Point(55, 76);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(63, 23);
             this.button2.TabIndex = 25;
@@ -216,7 +216,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(125, 12);
+            this.button3.Location = new System.Drawing.Point(124, 76);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 23);
             this.button3.TabIndex = 26;
@@ -226,7 +226,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(173, 12);
+            this.button4.Location = new System.Drawing.Point(172, 76);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(53, 23);
             this.button4.TabIndex = 27;
@@ -236,7 +236,7 @@
             // 
             // textBoxTimeInterval
             // 
-            this.textBoxTimeInterval.Location = new System.Drawing.Point(12, 49);
+            this.textBoxTimeInterval.Location = new System.Drawing.Point(11, 113);
             this.textBoxTimeInterval.Name = "textBoxTimeInterval";
             this.textBoxTimeInterval.Size = new System.Drawing.Size(54, 20);
             this.textBoxTimeInterval.TabIndex = 37;
@@ -244,7 +244,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(72, 47);
+            this.button5.Location = new System.Drawing.Point(71, 111);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(128, 23);
             this.button5.TabIndex = 38;
@@ -261,10 +261,10 @@
             this.dgvStats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nazwa,
             this.Wartość});
-            this.dgvStats.Location = new System.Drawing.Point(8, 151);
+            this.dgvStats.Location = new System.Drawing.Point(8, 153);
             this.dgvStats.Name = "dgvStats";
             this.dgvStats.RowHeadersVisible = false;
-            this.dgvStats.Size = new System.Drawing.Size(273, 134);
+            this.dgvStats.Size = new System.Drawing.Size(273, 132);
             this.dgvStats.TabIndex = 39;
             // 
             // Nazwa
@@ -284,7 +284,7 @@
             this.checkBoxRefresh.AutoSize = true;
             this.checkBoxRefresh.Checked = true;
             this.checkBoxRefresh.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRefresh.Location = new System.Drawing.Point(206, 49);
+            this.checkBoxRefresh.Location = new System.Drawing.Point(205, 113);
             this.checkBoxRefresh.Name = "checkBoxRefresh";
             this.checkBoxRefresh.Size = new System.Drawing.Size(84, 17);
             this.checkBoxRefresh.TabIndex = 40;
@@ -294,7 +294,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 94);
+            this.label1.Location = new System.Drawing.Point(14, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 42;
@@ -304,12 +304,29 @@
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.textBoxSteps);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(9, 78);
+            this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 55);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Symulacja";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(164, 20);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(53, 23);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "Start";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBoxSteps
+            // 
+            this.textBoxSteps.Location = new System.Drawing.Point(81, 22);
+            this.textBoxSteps.Name = "textBoxSteps";
+            this.textBoxSteps.Size = new System.Drawing.Size(77, 20);
+            this.textBoxSteps.TabIndex = 1;
             // 
             // label2
             // 
@@ -320,23 +337,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "kroki:";
             // 
-            // textBoxSteps
-            // 
-            this.textBoxSteps.Location = new System.Drawing.Point(81, 22);
-            this.textBoxSteps.Name = "textBoxSteps";
-            this.textBoxSteps.Size = new System.Drawing.Size(77, 20);
-            this.textBoxSteps.TabIndex = 1;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(183, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Start";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,11 +345,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxRefresh);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.dgvStats);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBoxTimeInterval);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panelSockets);

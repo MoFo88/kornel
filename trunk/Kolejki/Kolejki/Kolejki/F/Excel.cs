@@ -35,6 +35,7 @@ namespace Kolejki.F
                 workbooks = exc.Workbooks;
                 workbook = exc.Workbooks.Add(Type.Missing);
                 exc.Sheets.Add(Type.Missing);
+                exc.Sheets.Add(Type.Missing);
                 sheets = exc.Sheets;
 
                 for (int i = 1; i <= worksheetsCount; i++)
@@ -55,8 +56,6 @@ namespace Kolejki.F
 
                 object misValue = System.Reflection.Missing.Value;
                 exc.Visible = true;
-
-                
             }
 
             public void WriteRow(int ws, List<object> row)

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Kolejki.F.DeviceEmptyEvent">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>F\Events\DeviceEmptyEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.DeviceFinishedEvent">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\Events\DeviceFinishedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.Event">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\Events\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.GetFromQueueEvent">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\Events\GetFromQueueEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.JobGenerationEvent">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <InheritanceLine Type="Kolejki.F.Event" FixedFromPoint="true">
+      <Path>
+        <Point X="6.25" Y="2.055" />
+        <Point X="6.625" Y="2.055" />
+        <Point X="6.625" Y="2.625" />
+        <Point X="7.5" Y="2.625" />
+        <Point X="7.5" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\Events\JobGenerationEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.PutToQueueEvent">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\Events\PutToQueueEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.JobExtension" Collapsed="true">
+    <Position X="2.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\Extension\JobExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.SocketExtension" Collapsed="true">
+    <Position X="0.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAIAAAAAAEA=</HashCode>
+      <FileName>F\Extension\SocketExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.Queue">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAEgABEAAAAIAQgAAAAAABIAAAAAAAAAAg=</HashCode>
+      <FileName>F\Queues\Queue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kolejki.F.QueueFifo">
+    <Position X="0.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>F\Queues\QueueFifo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.QueueLifo">
+    <Position X="0.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>F\Queues\QueueLifo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.QueueRandom">
+    <Position X="0.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>F\Queues\QueueRandom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.Device">
+    <Position X="14" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAECAAAAAhAAAAAAABAAYEAAAAAABA=</HashCode>
+      <FileName>F\Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.Job">
+    <Position X="17.5" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACCCAAAAAKAIgAQEAAgAAAQAAVBAAACAJAAAACAEAAA=</HashCode>
+      <FileName>F\Job.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.MachineTime" Collapsed="true">
+    <Position X="4" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAgAAQAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\MachineTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.QueueSize" Collapsed="true">
+    <Position X="0.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAACAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\QueueSize.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.QueueTime" Collapsed="true">
+    <Position X="2.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAABAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>F\QueueTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.Scheduler">
+    <Position X="12.25" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AWCAFgAIkAAAgABAAABwoyhAAgAIgAyUBIACECAAQAA=</HashCode>
+      <FileName>F\Scheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.Socket">
+    <Position X="15.75" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQASCABAAAAAAAAEAABAAIAAAAACAABAIAAIAAAAZEA=</HashCode>
+      <FileName>F\Socket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.F.MyMath.Functions" Collapsed="true">
+    <Position X="0.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>F\MyMath\Functions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.MyMath.NormalDistr" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAEAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>F\MyMath\NormalDistr.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kolejki.MyMath.UniformDistr" BaseTypeListCollapsed="true">
+    <Position X="11" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>F\MyMath\UniformDistr.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kolejki.F.EstevesPlanner.Excel" Collapsed="true">
+    <Position X="2.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAABIAAAAAAACAAAAAAAABAAAAACAAAAgA=</HashCode>
+      <FileName>F\Excel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kolejki.Const" Collapsed="true">
+    <Position X="4" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAAAAAAAAAAAACEAAAAAAIAAAAQAAAAAgAQFAg=</HashCode>
+      <FileName>Const.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Kolejki.F.IQueue">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAEgABEAAAAAAQAAAAAAAAIAAAAAAAAAAg=</HashCode>
+      <FileName>F\Queues\IQueue.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kolejki.MyMath.IDistribution">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>F\MyMath\IDistribution.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
