@@ -12,7 +12,7 @@ namespace Kolejki
         public static int UNIFORM_MAX = 7;
 
         public static double NORMAL_MU = 7;
-        public static double NORLAN_SIGMA = 15;
+        public static double NORMAL_SIGMA = 15;
 
         public static int JOB_NORMAL_GENERATE_PROBABILITY = 15;
         public static int JOB_UNIFORM_GENERATE_PROBABILITY = 25;
@@ -20,11 +20,13 @@ namespace Kolejki
         //view
         public static int TIME_INTERVAL = 1000;
 
-        public static int ROW_HEIGHT = 35;
+        public static int ROW_HEIGHT = 30;
         public static int ROW_WIDTH = 80;
 
-        public static int CONTROL_SOCKET_HEIGHT = 200;
+        public static int CONTROL_SOCKET_HEIGHT = 180;
         public static int CONTROL_SOCKET_WIDTH = 170;
-        
+
+
+        public static int ROW_HEIGHT_QUEUE = 25;
     }
 }

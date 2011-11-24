@@ -60,6 +60,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.textBoxSteps = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.richTextBoxCount = new System.Windows.Forms.RichTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsQueue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStats)).BeginInit();
@@ -80,9 +82,9 @@
             // 
             this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox.Location = new System.Drawing.Point(287, 495);
+            this.richTextBox.Location = new System.Drawing.Point(354, 426);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(729, 75);
+            this.richTextBox.Size = new System.Drawing.Size(662, 144);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
@@ -93,6 +95,8 @@
             // 
             // dgvStatsDevice
             // 
+            this.dgvStatsDevice.AllowUserToAddRows = false;
+            this.dgvStatsDevice.AllowUserToDeleteRows = false;
             this.dgvStatsDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvStatsDevice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStatsDevice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
@@ -142,6 +146,8 @@
             // 
             // dgvStatsQueue
             // 
+            this.dgvStatsQueue.AllowUserToAddRows = false;
+            this.dgvStatsQueue.AllowUserToDeleteRows = false;
             this.dgvStatsQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvStatsQueue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStatsQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -200,7 +206,7 @@
             this.panelSockets.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelSockets.Location = new System.Drawing.Point(296, 12);
             this.panelSockets.Name = "panelSockets";
-            this.panelSockets.Size = new System.Drawing.Size(720, 477);
+            this.panelSockets.Size = new System.Drawing.Size(720, 408);
             this.panelSockets.TabIndex = 24;
             this.panelSockets.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSockets_Paint);
             // 
@@ -254,6 +260,8 @@
             // 
             // dgvStats
             // 
+            this.dgvStats.AllowUserToAddRows = false;
+            this.dgvStats.AllowUserToDeleteRows = false;
             this.dgvStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvStats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -284,7 +292,7 @@
             this.checkBoxRefresh.AutoSize = true;
             this.checkBoxRefresh.Checked = true;
             this.checkBoxRefresh.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRefresh.Location = new System.Drawing.Point(205, 113);
+            this.checkBoxRefresh.Location = new System.Drawing.Point(205, 105);
             this.checkBoxRefresh.Name = "checkBoxRefresh";
             this.checkBoxRefresh.Size = new System.Drawing.Size(84, 17);
             this.checkBoxRefresh.TabIndex = 40;
@@ -337,11 +345,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "kroki:";
             // 
+            // richTextBoxCount
+            // 
+            this.richTextBoxCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.richTextBoxCount.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.richTextBoxCount.Location = new System.Drawing.Point(296, 426);
+            this.richTextBoxCount.Name = "richTextBoxCount";
+            this.richTextBoxCount.Size = new System.Drawing.Size(52, 144);
+            this.richTextBoxCount.TabIndex = 44;
+            this.richTextBoxCount.Text = "";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(205, 128);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 17);
+            this.checkBox1.TabIndex = 45;
+            this.checkBox1.Text = "do excela";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 582);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.richTextBoxCount);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxRefresh);
@@ -403,6 +435,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBoxSteps;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBoxCount;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

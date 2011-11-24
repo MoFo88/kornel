@@ -33,7 +33,7 @@ namespace Kolejki
             DataGridViewCell cellQ = new DataGridViewTextBoxCell();
             DataGridViewColumn collQ = new DataGridViewColumn(cellQ);
             Queue.Columns.Add(collQ);
-            Queue.Height = Math.Min(Const.ROW_HEIGHT * socket.queue.Size, 200);
+            Queue.Height = Const.ROW_HEIGHT_QUEUE * socket.queue.Size;
             Queue.Width = Const.ROW_WIDTH;
             Queue.RowHeadersVisible = false;
             Queue.ColumnHeadersVisible = false;
