@@ -61,7 +61,7 @@ namespace Kolejki.F
         {
             if (CheckIfGenerateJob(Const.JOB_NORMAL_GENERATE_PROBABILITY))
             {
-                Job job = jobList.Create( new NormalDistr(Const.NORMAL_MU, Const.NORLAN_SIGMA), socketList, this.timestamp, this);
+                Job job = jobList.Create( new NormalDistr(Const.NORMAL_MU, Const.NORMAL_SIGMA), socketList, this.timestamp, this);
 
                 //
                 //tell
@@ -83,7 +83,7 @@ namespace Kolejki.F
             //next step
             timestamp++;
 
-            form.Notify("\n==" + this.timestamp + "==\n", 1);
+            form.Notify(this.timestamp + "\n", 1);
 
             JobGeneration();
 
@@ -137,7 +137,7 @@ namespace Kolejki.F
             {
                 //
                 //tell
-                String tell = "event JobGenerationEvent: ";
+                String tell = "ZDARZENIE: wygrnerowanie zadania\n";
 
                 JobGenerationEvent ev = (JobGenerationEvent)myEvent;
                 Job job = ev.job;
@@ -151,7 +151,7 @@ namespace Kolejki.F
                 {
                     //
                     //tell
-                    tell += timestamp + ": zad " + job.ToString() + " -> " + s.queue.ToString()+", ";
+                    tell += "AKCJA: zad " + job.ToString() + " -> " + s.queue.ToString()+"\n ";
                 }
                 else
                 {
@@ -159,7 +159,7 @@ namespace Kolejki.F
 
                     //
                     //tell
-                    tell += timestamp + ": zad " + job.ToString() + " zabite, ";
+                    tell += "AKCJA: zad " + job.ToString() + " zabite\n ";
                 }
 
                 eventList.Remove(myEvent);
@@ -170,7 +170,7 @@ namespace Kolejki.F
             {
                 //
                 //tell
-                String tell = "event PutToQueueEvent:";
+                String tell = "ZDARZENIE: zadanie w kolejce\n";
 
                 PutToQueueEvent ev = (PutToQueueEvent)myEvent;
                 IQueue queue = ev.queue;
@@ -189,7 +189,7 @@ namespace Kolejki.F
                     socket.AddJobToFirstFreeDevice(job);
                     //
                     //tell
-                    tell += timestamp + ": " + job.ToString() + " -> " + device.ToString() + ", ";
+                    tell += "AKCJA: zad " + job.ToString() + " -> " + device.ToString() + "\n";
                 }
 
                 form.Notify(tell);
@@ -199,7 +199,7 @@ namespace Kolejki.F
                 
                 //
                 //tell
-                String tell ="event DeviceFinishedEvent:";
+                String tell ="ZDARZENIE: maszyna ukończyła pracę\n";
                 
                 DeviceFinishedEvent ev = (DeviceFinishedEvent)myEvent;
                 Device device = ev.device;
@@ -209,7 +209,7 @@ namespace Kolejki.F
 
                 //
                 //tell
-                tell += timestamp + ". " + job.ToString() + " ukonczone na " + device.ToString();
+                tell += "AKCJA: zad " + job.ToString() + " ukonczone na " + device.ToString()  + "\n";
 
                 
                 //
@@ -234,7 +234,7 @@ namespace Kolejki.F
 
                     //
                     //tell
-                    tell += timestamp + ". " + "Zadanie " + job.ToString() + "ukonczone całkowicie, ";
+                    tell += "AKCJA: Zad " + job.ToString() + " ukonczone całkowicie\n";
 
                 }
                 //
@@ -252,7 +252,7 @@ namespace Kolejki.F
                             device.RemoveJob(timestamp, socket);
                             //
                             //tell
-                            tell += timestamp + ". " + "Zadanie dodane do kolejki: " + job.ToString() + ", " + nextSocket.queue.ToString() + ", ";
+                            tell += "AKCJA: Zadanie dodane do kolejki: " + job.ToString() + ", " + nextSocket.queue.ToString() + "\n";
                         }
                     }
                 }
@@ -263,7 +263,7 @@ namespace Kolejki.F
             {
                 //
                 //tell
-                String tell = "event DeviceEmptyEvent:";
+                String tell = "ZDARZENIE: maszyna pusta\n";
 
                 DeviceEmptyEvent ev = (DeviceEmptyEvent)myEvent;
                 Socket socket = ev.socket;
@@ -282,7 +282,7 @@ namespace Kolejki.F
             {
                 //
                 //tell
-                String tell = "event GetFromQueueEvent:";
+                String tell = "ZDARZENIE: Pobranie zadnaie z kolejki\n";
 
                 GetFromQueueEvent ev = (GetFromQueueEvent)myEvent;
                 IQueue queue = ev.queue;
@@ -309,7 +309,7 @@ namespace Kolejki.F
 
                     //
                     //tell
-                    tell += timestamp + ": " + job.ToString() + " -> " + queue.ToString() + ", ";
+                    tell += "AKCJA: zad" + job.ToString() + " -> " + queue.ToString() + "\n";
                 }
 
                 form.Notify(tell);

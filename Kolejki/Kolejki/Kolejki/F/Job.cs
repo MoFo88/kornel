@@ -85,8 +85,9 @@ namespace Kolejki.F
 
         public double StdVarWorkTime()
         {
-            var result = VisitedDevices.Select(v => (double)GetMachineTimeForDevice(v).sec).CalculateStdDev();
-            return result;
+            List<double> result = VisitedDevices.Select(v => (double)GetMachineTimeForDevice(v).sec).ToList();
+            if (result.Count <= 1) return 0;
+            return result.CalculateStdDev();
         }
 
         public MachineTime GetMachineTimeForDevice(Device device)
@@ -98,7 +99,6 @@ namespace Kolejki.F
         {
             return QueueTimeList.SingleOrDefault(t => t.queue == queue);
         }
-
 
         internal void AddVisitedDevice(Device device)
         {

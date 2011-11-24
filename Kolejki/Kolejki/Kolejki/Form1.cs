@@ -54,7 +54,6 @@ namespace Kolejki
             DataGridView dgv = cosCtrl.DeviceList[devNr];
             Device dev = (Device)dgv.Tag;
 
-            //todo: label device
             cosCtrl.devlabels[devNr].Text = dev.ToString();
             
             Job job = dev.CurrentJob;
@@ -84,9 +83,7 @@ namespace Kolejki
         {
             if (checkBoxRefresh.Checked)
             {
-
                 int jobCount = scheduler.jobList.Count();
-
 
                 InitializeDevicesStatistics();
                 InitializeQueuesStatistics();
@@ -111,7 +108,7 @@ namespace Kolejki
         {
             //
             //excel
-            if (excel1 != null)
+            if (excel1 != null && checkBox1.Checked)
             {
                 RefreshExcelGlobalStatistics();
                 RefreshExcelDeviceStatistics();
@@ -121,94 +118,98 @@ namespace Kolejki
 
         public void InitilizeExcel()
         {
-            //excel initialize
-            List<object> str = new List<object>();
-
-            str.Add("czas");
-            str.Add("liczba zadan");
-            str.Add("liczba zabitych zadań");
-            str.Add("max czas w systemie");
-            str.Add("min czas w systemie");
-            str.Add("średni czas w systemie");
-            str.Add("odch. st. czasu w systemie");
-            str.Add("max czas pracy zadania");
-            str.Add("min czas pracy zadania");
-            str.Add("średni czas pracy zadania");
-            str.Add("odch. st. czasu pracy zadania");
-            str.Add("max czas bezczynnosci");
-            str.Add("min czas bezczynnosci");
-            str.Add("średni czas bezczynnosci");
-            str.Add("odch. st. czasu bezczynnosci");
-
-            excel1.WriteRow(0, str);
-
-            str = new List<object>();
-
-            str.Add("Czas");
-
-            foreach (Socket soc in scheduler.socketList)
+            if (excel1 != null)
             {
-                foreach (Device dev in soc.deviceList)
-                {
-                    str.Add("Id.");
-                    str.Add("Łączny czas pracy");
-                    str.Add("Łączny czas zajęt.");
-                    str.Add("śr. czas pracy");
-                    str.Add("śr. czas zaj.");
-                    str.Add("");
-                }
-            }
 
-            excel1.WriteRow(1, str);
-           
-            str = new List<object>();
+                //excel initialize
+                List<object> str = new List<object>();
 
-            foreach (Socket soc in scheduler.socketList)
-            {
+                str.Add("czas");
+                str.Add("liczba zadan");
+                str.Add("liczba zabitych zadań");
+                str.Add("max czas w systemie");
+                str.Add("min czas w systemie");
+                str.Add("średni czas w systemie");
+                str.Add("odch. st. czasu w systemie");
+                str.Add("max czas pracy zadania");
+                str.Add("min czas pracy zadania");
+                str.Add("średni czas pracy zadania");
+                str.Add("odch. st. czasu pracy zadania");
+                str.Add("max czas bezczynnosci");
+                str.Add("min czas bezczynnosci");
+                str.Add("średni czas bezczynnosci");
+                str.Add("odch. st. czasu bezczynnosci");
+
+                excel1.WriteRow(0, str);
+
+                str = new List<object>();
+
                 str.Add("Czas");
-                str.Add("Nazwa kolejki");
-                str.Add("śr. czas");
-                str.Add("łączny czas");
-                str.Add("max czas");
-                str.Add("max liczba zadan");
-                str.Add("śr. liczba zadan");
+
+
+                foreach (Socket soc in scheduler.socketList)
+                {
+                    foreach (Device dev in soc.deviceList)
+                    {
+                        str.Add("Id.");
+                        str.Add("Łączny czas pracy");
+                        str.Add("Łączny czas zajęt.");
+                        str.Add("śr. czas pracy");
+                        str.Add("śr. czas zaj.");
+                        str.Add("");
+                    }
+                }
+
+                excel1.WriteRow(1, str);
+
+                str = new List<object>();
+
+                str.Add("Czas");
+
+                foreach (Socket soc in scheduler.socketList)
+                {
+                    str.Add("Nazwa kolejki");
+                    str.Add("śr. czas");
+                    str.Add("łączny czas");
+                    str.Add("max czas");
+                    str.Add("max liczba zadan");
+                    str.Add("śr. liczba zadan");
+                    str.Add("");
+
+                }
+
+                excel1.WriteRow(2, str);
+
+
+                str = new List<object>();
+
+                str.Add("Czas");
+                str.Add("Id");
+                str.Add("Typ rozkładu");
+                str.Add("Czas w systemie");
+                str.Add("Czas pracy");
+                str.Add("Czas bezczynności");
+                str.Add("Min. czas pracy");
+                str.Add("Maks. czas pracy");
+                str.Add("Śr. Czas pracy");
+                str.Add("Odchylenie std. czasu pracy");
                 str.Add("");
-                
+                excel1.WriteRow(3, str);
+
+                //
+                str = new List<object>();
+
+                excel1.WriteRow(4, new List<object> { "JOB_NORMAL_GENERATE_PROBABILITY", Const.JOB_NORMAL_GENERATE_PROBABILITY });
+                excel1.WriteRow(4, new List<object> { "JOB_UNIFORM_GENERATE_PROBABILITY", Const.JOB_UNIFORM_GENERATE_PROBABILITY });
+                excel1.WriteRow(4, new List<object> { "NORMAL_SIGMA", Const.NORMAL_SIGMA });
+                excel1.WriteRow(4, new List<object> { "NORMAL_MU", Const.NORMAL_MU });
+                excel1.WriteRow(4, new List<object> { "UNIFORM_MAX", Const.UNIFORM_MAX });
+                excel1.WriteRow(4, new List<object> { "UNIFORM_MIN", Const.UNIFORM_MIN });
             }
-
-            excel1.WriteRow(2, str);
-
-
-            str = new List<object>();
-
-            str.Add("Czas"); 
-            str.Add("Id"); 
-            str.Add("Typ rozkładu"); 
-            str.Add("Czas w systemie"); 
-            str.Add("Czas pracy");
-            str.Add("Czas bezczynności");
-            str.Add("Min. czas pracy"); 
-            str.Add("Maks. czas pracy"); 
-            str.Add("Śr. Czas pracy"); 
-            str.Add("Odchylenie std. czasu pracy");
-            str.Add("");
-            excel1.WriteRow(3, str);
-
-            //
-            str = new List<object>();
-
-            excel1.WriteRow(4, new List<object> { "JOB_NORMAL_GENERATE_PROBABILITY", Const.JOB_NORMAL_GENERATE_PROBABILITY });
-            excel1.WriteRow(4, new List<object> { "JOB_UNIFORM_GENERATE_PROBABILITY", Const.JOB_UNIFORM_GENERATE_PROBABILITY });
-            excel1.WriteRow(4, new List<object> { "NORLAN_SIGMA", Const.NORLAN_SIGMA });
-            excel1.WriteRow(4, new List<object> { "NORMAL_MU", Const.NORMAL_MU });
-            excel1.WriteRow(4, new List<object> { "UNIFORM_MAX", Const.UNIFORM_MAX });
-            excel1.WriteRow(4, new List<object> { "UNIFORM_MIN", Const.UNIFORM_MIN });
-
         }        
 
         private void RefreshExcelGlobalStatistics()
         {
-
 
             //
             //excel
@@ -220,7 +221,7 @@ namespace Kolejki
             str.Add(scheduler.MaxTimeInSystem());
             str.Add(scheduler.MinTimeInSystem());
             str.Add(scheduler.AvgTimeInSystem());
-            str.Add(scheduler.StdVarWorkTime());
+            str.Add(scheduler.StdVarTimeInSystem());
             str.Add(scheduler.MaxWorkTime());
             str.Add(scheduler.MinWorkTime());
             str.Add(scheduler.AvgWorkingTime());
@@ -290,24 +291,26 @@ namespace Kolejki
 
         public void AddToExcelJobStatistic(Job job)
         {
+            if (excel1 != null)
+            {
+                //
+                //excel
+                var str = new List<object>();
 
-            //
-            //excel
-            var str = new List<object>();
+                str.Add(scheduler.timestamp);
+                str.Add(job.Id);
+                str.Add(job.Distribution.Name);
+                str.Add(job.TimeInSystem);
+                str.Add(job.WorkedTime());
+                str.Add(job.WastedTime());
+                str.Add(job.MinWorkTime());
+                str.Add(job.MaxWorkTime());
+                str.Add(job.AvgWorkTime());
+                str.Add(job.StdVarWorkTime());
+                str.Add("");
 
-            str.Add(scheduler.timestamp);
-            str.Add(job.Id);
-            str.Add(job.Distribution.Name);
-            str.Add(job.TimeInSystem);
-            str.Add(job.WorkedTime());
-            str.Add(job.WastedTime());
-            str.Add(job.MinWorkTime());
-            str.Add(job.MaxWorkTime());
-            str.Add(job.AvgWorkTime());
-            str.Add(job.StdVarWorkTime());
-            str.Add("");
-
-            excel1.WriteRow(3, str);
+                excel1.WriteRow(3, str);
+            }
         }
 
         private void InitializeDevicesStatistics()
@@ -341,7 +344,7 @@ namespace Kolejki
             dgvStats.Rows.Add("max czas w systemie", scheduler.MaxTimeInSystem());
             dgvStats.Rows.Add("min czas w systemie", scheduler.MinTimeInSystem());
             dgvStats.Rows.Add("średni czas w systemie", scheduler.AvgTimeInSystem());
-            dgvStats.Rows.Add("odch. st. czasu w systemie", scheduler.StdVarWorkTime());
+            dgvStats.Rows.Add("odch. st. czasu w systemie", scheduler.StdVarTimeInSystem());
             dgvStats.Rows.Add("max czas pracy zadania", scheduler.MaxWorkTime());
             dgvStats.Rows.Add("min czas pracy zadania", scheduler.MinWorkTime());
             dgvStats.Rows.Add("średni czas pracy zadania", scheduler.AvgWorkingTime());
@@ -378,7 +381,8 @@ namespace Kolejki
 
         public void Notify(String message, int i  = 0)
         {
-            if (i == 1) richTextBox.Text = message + "\n" +  richTextBox.Text; 
+            if (i == 1) richTextBoxCount.Text = message + "\n" + richTextBoxCount.Text;
+            if (checkBoxRefresh.Checked) richTextBox.Text = message + "\n" + richTextBox.Text; 
         }
 
         public void OnLoad()
