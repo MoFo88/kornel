@@ -563,10 +563,13 @@ namespace Kolejki
                 }
             }
 
-            for (int i = 0; i <= 3; i++)
+            if (excel1 != null)
             {
-                excel1.ResetX(i);
-                excel1.ResetY(i);
+                for (int i = 0; i <= 3; i++)
+                {
+                    excel1.ResetX(i);
+                    excel1.ResetY(i);
+                }
             }
         }
 
