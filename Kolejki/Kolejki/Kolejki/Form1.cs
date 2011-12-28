@@ -406,10 +406,6 @@ namespace Kolejki
                     control.Location = new Point(control.Socket.X, control.Socket.Y);
                     this.panelSockets.Controls.Add(control);
                 }
-
-
-               
-
             }
             catch (Exception ex)
             {

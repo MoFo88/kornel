@@ -74,6 +74,7 @@
     <Compile Include="F\Device.cs" />
     <Compile Include="F\Events\GetFromQueueEvent.cs" />
     <Compile Include="F\Excel.cs" />
+    <Compile Include="F\MyMath\ExponentialDistribution.cs" />
     <Compile Include="F\MyMath\Functions.cs" />
     <Compile Include="F\QueueSize.cs" />
     <Compile Include="F\Queues\IQueue.cs" />

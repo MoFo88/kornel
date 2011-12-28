@@ -21,7 +21,6 @@ namespace Kolejki.F
         { 
             get
             {
-
                 if (eventList.Count > 0) return false;
                 return true;
             } 
@@ -43,7 +42,7 @@ namespace Kolejki.F
             UniformDistr uniformDistr = new UniformDistr(0, 100);
             double nextRandom = uniformDistr.NextValue();
  
-            if ( nextRandom <= prob ) return true;
+            if ( nextRandom < prob ) return true;
             return false;
         }
 
@@ -71,6 +70,15 @@ namespace Kolejki.F
             if (CheckIfGenerateJob(Const.JOB_UNIFORM_GENERATE_PROBABILITY))
             {
                 Job job = jobList.Create(new UniformDistr(Const.UNIFORM_MIN, Const.UNIFORM_MAX), socketList, this.timestamp, this);
+
+                //
+                //tell
+                form.Notify(timestamp + ". " + "Zadanie dodane: " + job.ToString());
+            }
+
+            if (CheckIfGenerateJob(Const.JOB_EXPONENTIAL_GENERATE_PROBABILITY))
+            {
+                Job job = jobList.Create(new ExponentialDistribution(Const.EXPONENTIAL_RATE), socketList, this.timestamp, this);
 
                 //
                 //tell
