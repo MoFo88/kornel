@@ -14,8 +14,11 @@ namespace Kolejki
         public static double NORMAL_MU = 7;
         public static double NORMAL_SIGMA = 15;
 
+        public static double EXPONENTIAL_RATE = 1;
+
         public static int JOB_NORMAL_GENERATE_PROBABILITY = 15;
         public static int JOB_UNIFORM_GENERATE_PROBABILITY = 25;
+        public static int JOB_EXPONENTIAL_GENERATE_PROBABILITY = 25;
 
         //view
         public static int TIME_INTERVAL = 1000;

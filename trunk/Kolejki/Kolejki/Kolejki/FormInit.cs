@@ -118,10 +118,8 @@ namespace Kolejki
                 }
             }
 
-            //if (open) scheduler.form.Close();
-            //scheduler.form = new Form1(scheduler);
             scheduler.form.OnLoad();
-            //if (open) scheduler.form.Show();
+
         }
 
         public void InitializeComboBoxQueueType()
@@ -190,7 +188,8 @@ namespace Kolejki
             Const.NORMAL_SIGMA =  Int32.Parse(textBoxNormStd.Text);
             Const.JOB_NORMAL_GENERATE_PROBABILITY = Int32.Parse(textBoxNormGenProb.Text);
             Const.JOB_UNIFORM_GENERATE_PROBABILITY = Int32.Parse(textBoxUnifGenProb.Text);
-
+            Const.JOB_EXPONENTIAL_GENERATE_PROBABILITY = Int32.Parse(textBoxGenExp.Text);
+            Const.EXPONENTIAL_RATE = Double.Parse(textBoxLambda.Text);
         }
 
         public void Empty()
@@ -250,7 +249,11 @@ namespace Kolejki
 
         private void button4_Click(object sender, EventArgs e)
         {
-            UpadteParameters();
+            try
+            {
+                UpadteParameters();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -284,29 +287,13 @@ namespace Kolejki
         public  void Initialize1()
         {
             
-            QueueFifo q1 = new QueueFifo(this.scheduler, 30);
+            QueueFifo q1 = new QueueFifo(this.scheduler, 50);
             Socket s1 = new Socket(q1, this.scheduler, true);
             Device d_1_1 = new Device();
-            Device d_1_2 = new Device();
-            Device d_1_3 = new Device();
-            Device d_1_4 = new Device();
-            Device d_1_5 = new Device();
-            Device d_1_6 = new Device();
-            Device d_1_7 = new Device();
-            Device d_1_8 = new Device();
-            Device d_1_9 = new Device();
-            Device d_1_10 = new Device();
-
+            //Device d_1_2 = new Device();
+            
             s1.AddDevice(d_1_1);
-            s1.AddDevice(d_1_2);
-            s1.AddDevice(d_1_3);
-            s1.AddDevice(d_1_4);
-            s1.AddDevice(d_1_5);
-            s1.AddDevice(d_1_6);
-            s1.AddDevice(d_1_7);
-            s1.AddDevice(d_1_8);
-            s1.AddDevice(d_1_9);
-            s1.AddDevice(d_1_10);
+            //s1.AddDevice(d_1_2);
                 
             s1.X = 0;
             s1.Y = 0;
